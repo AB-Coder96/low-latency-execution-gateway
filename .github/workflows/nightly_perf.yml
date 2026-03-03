@@ -1,0 +1,31 @@
+name: Nightly Perf Baseline
+
+on:
+  schedule:
+    # 03:00 UTC daily (adjust as needed)
+    - cron: "0 3 * * *"
+  workflow_dispatch:
+
+jobs:
+  nightly-perf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Python deps
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install pandas matplotlib
+
+      - name: Run baseline suite
+        run: |
+          chmod +x scripts/ci_nightly_perf.sh
+          ./scripts/ci_nightly_perf.sh
+
+      - name: Upload CSV artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nightly-perf-csv
+          path: out/ci_*/**/*.csv
+          if-no-files-found: error
