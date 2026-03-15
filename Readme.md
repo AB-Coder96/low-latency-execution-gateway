@@ -154,3 +154,9 @@ wire-to-wire latency
 exchange acknowledgment latency
 
 cancel-to-ack latency
+
+# Visulaization
+dashboards for operators
+latency heatmaps
+percentile charts
+venue-by-venue comparisons
