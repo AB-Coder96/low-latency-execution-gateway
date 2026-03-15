@@ -141,3 +141,16 @@ Fill this with your measured numbers:
 - CPU governor check + warnings
 - expand NUMA experiments and document results
 - optional eBPF/perf integration scripts
+
+# to add
+market data receive latency
+
+strategy decision latency
+
+order serialization latency
+
+wire-to-wire latency
+
+exchange acknowledgment latency
+
+cancel-to-ack latency
