@@ -1,7 +1,8 @@
 # Test build configuration for FPGA-Gated Execution Platform.
 #
 # This file defines a small helper function for adding C++ test executables.
-# Individual tests are added only when their source files exist.
+# Individual tests are added only when their source files exist, so the repo
+# can configure cleanly during the early skeleton stage.
 
 function(fgep_add_test test_name source_file)
     add_executable(
@@ -33,6 +34,18 @@ endif()
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_errors.cpp")
     fgep_add_test(test_errors test_errors.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_wire_byte_io.cpp")
+    fgep_add_test(test_wire_byte_io test_wire_byte_io.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_fixed_ascii.cpp")
+    fgep_add_test(test_fixed_ascii test_fixed_ascii.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_message_type.cpp")
+    fgep_add_test(test_itch_message_type test_itch_message_type.cpp)
 endif()
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_market_events.cpp")
