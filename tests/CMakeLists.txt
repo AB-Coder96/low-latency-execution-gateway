@@ -31,6 +31,10 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_core_types.cpp")
     fgep_add_test(test_core_types test_core_types.cpp)
 endif()
 
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_errors.cpp")
+    fgep_add_test(test_errors test_errors.cpp)
+endif()
+
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_market_events.cpp")
     fgep_add_test(test_market_events test_market_events.cpp)
 endif()
