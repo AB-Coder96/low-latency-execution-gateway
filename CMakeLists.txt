@@ -1,100 +1,98 @@
 cmake_minimum_required(VERSION 3.20)
-project(ZetaLatency LANGUAGES CXX)
 
-find_package(Threads REQUIRED)
+project(
+    fpga_gated_execution_platform
+    VERSION 0.1.0
+    DESCRIPTION "C++20 ITCH/OUCH replay, order book, risk, and execution platform with FPGA-style guardrail gating"
+    LANGUAGES CXX
+)
+
+# ---------------------------------------------------------------------------
+# Global C++ settings
+# ---------------------------------------------------------------------------
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Generate compile_commands.json for editors, clangd, and tooling.
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-option(ZL_BUILD_TESTS "Build unit tests (GoogleTest)" ON)
-option(ZL_BUILD_BENCH "Build benchmark harness binary" ON)
-option(ZL_USE_GOOGLE_BENCHMARK "Build Google Benchmark target (optional)" OFF)
-option(ZL_ENABLE_LTO "Enable link-time optimization (Release only)" OFF)
+# ---------------------------------------------------------------------------
+# Project options
+# ---------------------------------------------------------------------------
 
-include(CheckIPOSupported)
-if(ZL_ENABLE_LTO)
-  check_ipo_supported(RESULT lto_ok OUTPUT lto_err)
-  if(lto_ok)
-    set(CMAKE_INTERPROCEDURAL_OPTIMIZATION_RELEASE TRUE)
-  else()
-    message(WARNING "IPO/LTO not supported: ${lto_err}")
-  endif()
-endif()
+option(FGEP_BUILD_TESTS "Build unit and integration tests" ON)
+option(FGEP_BUILD_APPS "Build demo applications" ON)
+option(FGEP_BUILD_BENCHMARKS "Build benchmark executables" OFF)
+option(FGEP_ENABLE_WARNINGS "Enable strict compiler warnings" ON)
 
-# Git SHA for provenance (best-effort)
-execute_process(
-  COMMAND git rev-parse --short HEAD
-  WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
-  RESULT_VARIABLE _git_res
-  OUTPUT_VARIABLE ZL_GIT_SHA
-  OUTPUT_STRIP_TRAILING_WHITESPACE
-  ERROR_QUIET
+# ---------------------------------------------------------------------------
+# Main library target
+# ---------------------------------------------------------------------------
+#
+# This starts as an INTERFACE library so the repository can configure before
+# implementation files exist. As the project grows, this can become a normal
+# static library with real source files.
+
+add_library(fgep INTERFACE)
+
+target_include_directories(
+    fgep
+    INTERFACE
+        ${PROJECT_SOURCE_DIR}/include
 )
-if(NOT _git_res EQUAL 0 OR "${ZL_GIT_SHA}" STREQUAL "")
-  set(ZL_GIT_SHA "unknown")
-endif()
 
-add_library(zetalatency STATIC
-  cpp/common/affinity.cpp
-  cpp/common/sysinfo.cpp
-  cpp/perf/perf_events.cpp
+target_compile_features(
+    fgep
+    INTERFACE
+        cxx_std_20
 )
-target_include_directories(zetalatency PUBLIC ${CMAKE_SOURCE_DIR}/cpp)
-target_link_libraries(zetalatency PUBLIC Threads::Threads)
-target_compile_definitions(zetalatency PUBLIC ZL_GIT_SHA="${ZL_GIT_SHA}")
 
-if(UNIX AND NOT APPLE)
-  target_compile_definitions(zetalatency PUBLIC ZL_LINUX=1)
+if(FGEP_ENABLE_WARNINGS)
+    if(MSVC)
+        target_compile_options(fgep INTERFACE /W4 /permissive-)
+    else()
+        target_compile_options(
+            fgep
+            INTERFACE
+                -Wall
+                -Wextra
+                -Wpedantic
+                -Wconversion
+                -Wsign-conversion
+        )
+    endif()
 endif()
 
-# Warnings
-if(MSVC)
-  target_compile_options(zetalatency PUBLIC /W4)
-else()
-  target_compile_options(zetalatency PUBLIC -Wall -Wextra -Wpedantic)
+# ---------------------------------------------------------------------------
+# Optional subdirectories
+# ---------------------------------------------------------------------------
+include(cmake/ProjectOptions.cmake)
+include(cmake/CompilerWarnings.cmake)
+include(cmake/Sanitizers.cmake)
+include(CTest)
+
+if(FGEP_BUILD_TESTS AND EXISTS "${PROJECT_SOURCE_DIR}/tests/CMakeLists.txt")
+    enable_testing()
+    add_subdirectory(tests)
 endif()
 
-if(ZL_BUILD_BENCH)
-  add_executable(ZetaLatency_bench
-    cpp/bench/main.cpp
-  )
-  target_link_libraries(ZetaLatency_bench PRIVATE zetalatency)
+if(FGEP_BUILD_APPS AND EXISTS "${PROJECT_SOURCE_DIR}/apps/CMakeLists.txt")
+    add_subdirectory(apps)
 endif()
 
-# GoogleTest (FetchContent)
-if(ZL_BUILD_TESTS)
-  include(FetchContent)
-  FetchContent_Declare(
-    googletest
-    GIT_REPOSITORY https://github.com/google/googletest.git
-    GIT_TAG        v1.15.0
-  )
-  set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-  FetchContent_MakeAvailable(googletest)
-
-  enable_testing()
-  add_executable(ZetaLatency_tests
-    cpp/tests/test_ring_buffer.cpp
-  )
-  target_link_libraries(ZetaLatency_tests PRIVATE zetalatency GTest::gtest_main)
-  include(GoogleTest)
-  gtest_discover_tests(ZetaLatency_tests)
+if(FGEP_BUILD_BENCHMARKS AND EXISTS "${PROJECT_SOURCE_DIR}/benchmarks/CMakeLists.txt")
+    add_subdirectory(benchmarks)
 endif()
 
-# Optional: Google Benchmark
-if(ZL_USE_GOOGLE_BENCHMARK)
-  include(FetchContent)
-  FetchContent_Declare(
-    benchmark
-    GIT_REPOSITORY https://github.com/google/benchmark.git
-    GIT_TAG        v1.9.0
-  )
-  set(BENCHMARK_ENABLE_GTEST_TESTS OFF CACHE BOOL "" FORCE)
-  FetchContent_MakeAvailable(benchmark)
+# ---------------------------------------------------------------------------
+# Status summary
+# ---------------------------------------------------------------------------
 
-  add_executable(ZetaLatency_gbench
-    cpp/bench/google_benchmark.cpp
-  )
-  target_link_libraries(ZetaLatency_gbench PRIVATE zetalatency benchmark::benchmark)
-endif()
+message(STATUS "Project: ${PROJECT_NAME} ${PROJECT_VERSION}")
+message(STATUS "C++ standard: C++${CMAKE_CXX_STANDARD}")
+message(STATUS "Build tests: ${FGEP_BUILD_TESTS}")
+message(STATUS "Build apps: ${FGEP_BUILD_APPS}")
+message(STATUS "Build benchmarks: ${FGEP_BUILD_BENCHMARKS}")
+
