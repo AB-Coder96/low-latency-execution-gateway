@@ -1,0 +1,98 @@
+# Build outputs
+build/
+cmake-build-*/
+out/
+bin/
+lib/
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+DartConfiguration.tcl
+install_manifest.txt
+
+# Ninja / Make
+.ninja_deps
+.ninja_log
+*.ninja
+Makefile
+
+# Test and benchmark outputs
+results/**/*.csv
+results/**/*.json
+results/**/*.txt
+results/**/*.log
+benchmarks/output/
+coverage/
+*.profraw
+*.profdata
+*.gcda
+*.gcno
+*.gcov
+
+# Generated data
+data/generated/
+*.pcap
+*.pcapng
+
+# Logs
+*.log
+logs/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python helper script cache
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# SystemVerilog / FPGA simulation outputs
+hardware/sim/work/
+hardware/sim/obj_dir/
+hardware/sim/waves/
+hardware/sim/*.vcd
+hardware/sim/*.fst
+hardware/sim/*.ghw
+hardware/sim/transcript
+hardware/sim/vsim.wlf
+
+# FPGA tool outputs
+*.bit
+*.bin
+*.mcs
+*.jou
+*.str
+*.rpt
+*.dcp
+*.xdc.bak
+*.xpr
+*.runs/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.sim/
+*.srcs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp

@@ -1,1 +1,82 @@
-{"binaryDir": "${sourceDir}/build/debug"}
+{
+    "version": 6,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 20,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "debug",
+            "displayName": "Debug",
+            "description": "Debug build with tests enabled.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "OFF",
+                "FGEP_ENABLE_WARNINGS": "ON"
+            }
+        },
+        {
+            "name": "release",
+            "displayName": "Release",
+            "description": "Optimized release build with tests and apps enabled.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "OFF",
+                "FGEP_ENABLE_WARNINGS": "ON"
+            }
+        },
+        {
+            "name": "bench",
+            "displayName": "Benchmarks",
+            "description": "Release build with benchmark targets enabled.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/bench",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "ON",
+                "FGEP_ENABLE_WARNINGS": "ON"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug",
+            "configurePreset": "debug"
+        },
+        {
+            "name": "release",
+            "configurePreset": "release"
+        },
+        {
+            "name": "bench",
+            "configurePreset": "bench"
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "debug",
+            "configurePreset": "debug",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "release",
+            "configurePreset": "release",
+            "output": {
+                "outputOnFailure": true
+            }
+        }
+    ]
+}
