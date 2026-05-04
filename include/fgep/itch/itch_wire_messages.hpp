@@ -219,7 +219,7 @@ struct TradeNonCrossMessage {
 
 struct CrossTradeMessage {
     Header header{};
-    Shares shares{};
+    CrossShares shares{};
     StockSymbol stock{};
     Price4 cross_price{};
     MatchNumber match_number{};
@@ -617,7 +617,7 @@ using Message = std::variant<
     const CrossTradeMessage& message
 ) noexcept {
     return is_valid_header_for_stock_message(message.header)
-        && is_valid_shares(message.shares)
+        && is_valid_cross_shares(message.shares)
         && is_valid_price4(message.cross_price)
         && is_valid_match_number(message.match_number)
         && wire::is_valid_fixed_ascii(message.stock);

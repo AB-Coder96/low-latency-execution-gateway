@@ -12,6 +12,14 @@ namespace fgep::itch {
 // Nasdaq TotalView-ITCH 5.0 wire-domain types
 // -----------------------------------------------------------------------------
 //
+// This file contains protocol-level ITCH types and constants.
+//
+// It is intentionally separate from:
+//   fgep/core/market_event.hpp
+//
+// because core market events are internal domain events, while this file is for
+// exact byte-to-byte ITCH decoding and encoding.
+//
 // TotalView-ITCH 5.0 wire facts represented here:
 //   - integer fields are big-endian binary values
 //   - alpha fields are fixed-width ASCII, left-justified, right-padded spaces
@@ -21,6 +29,13 @@ namespace fgep::itch {
 //   - order reference numbers are 8-byte unsigned integers
 //   - visible order prices are usually Price(4), encoded as 4-byte integers
 //
+// This file does not read or write bytes directly.
+// Byte I/O lives in:
+//   fgep/wire/byte_io.hpp
+//
+// Fixed-width ASCII helpers live in:
+//   fgep/wire/fixed_ascii.hpp
+
 // -----------------------------------------------------------------------------
 // Basic ITCH scalar types
 // -----------------------------------------------------------------------------
@@ -34,6 +49,9 @@ using OrderReferenceNumber = std::uint64_t;
 using MatchNumber = std::uint64_t;
 
 using Shares = std::uint32_t;
+
+// Cross Trade messages use an 8-byte shares field.
+using CrossShares = std::uint64_t;
 
 // Price(4): unsigned integer with 4 implied decimal places.
 // Example:
@@ -59,16 +77,12 @@ inline constexpr TimestampNs seconds_per_day = 86'400ULL;
 inline constexpr TimestampNs nanoseconds_per_day =
     seconds_per_day * nanoseconds_per_second;
 
-// ITCH timestamps are nanoseconds since midnight.
-// The maximum valid timestamp inside a normal day is one nanosecond before the
-// next midnight.
 inline constexpr TimestampNs max_timestamp_ns_since_midnight =
     nanoseconds_per_day - 1ULL;
 
 // -----------------------------------------------------------------------------
-// ITCH header layout
+// Common ITCH header layout
 // -----------------------------------------------------------------------------
-// The message-specific body begins at offset 11.
 
 inline constexpr std::size_t offset_message_type = 0;
 inline constexpr std::size_t offset_stock_locate = 1;
@@ -85,26 +99,23 @@ inline constexpr std::size_t size_common_header = 11;
 // -----------------------------------------------------------------------------
 // Message lengths for first byte-to-byte implementation set
 // -----------------------------------------------------------------------------
-//
-// These are exact payload message lengths for the ITCH messages we will decode
-// and encode first.
 
-inline constexpr std::size_t length_system_event = 12;                 // S
-inline constexpr std::size_t length_add_order_no_mpid = 36;            // A
-inline constexpr std::size_t length_add_order_with_mpid = 40;          // F
-inline constexpr std::size_t length_order_executed = 31;               // E
-inline constexpr std::size_t length_order_executed_with_price = 36;    // C
-inline constexpr std::size_t length_order_cancel = 23;                 // X
-inline constexpr std::size_t length_order_delete = 19;                 // D
-inline constexpr std::size_t length_order_replace = 35;                // U
-inline constexpr std::size_t length_trade_non_cross = 44;              // P
-inline constexpr std::size_t length_cross_trade = 40;                  // Q
-inline constexpr std::size_t length_broken_trade = 19;                 // B
+inline constexpr std::size_t length_system_event = 12;
+inline constexpr std::size_t length_add_order_no_mpid = 36;
+inline constexpr std::size_t length_add_order_with_mpid = 40;
+inline constexpr std::size_t length_order_executed = 31;
+inline constexpr std::size_t length_order_executed_with_price = 36;
+inline constexpr std::size_t length_order_cancel = 23;
+inline constexpr std::size_t length_order_delete = 19;
+inline constexpr std::size_t length_order_replace = 35;
+inline constexpr std::size_t length_trade_non_cross = 44;
+inline constexpr std::size_t length_cross_trade = 40;
+inline constexpr std::size_t length_broken_trade = 19;
 
 // -----------------------------------------------------------------------------
-// ITCH header struct (decoded representation of the common header fields)
+// Common ITCH header struct
 // -----------------------------------------------------------------------------
-//
+
 struct Header {
     StockLocate stock_locate{};
     TrackingNumber tracking_number{};
@@ -122,9 +133,9 @@ struct Header {
 }
 
 [[nodiscard]] constexpr bool is_valid_or_zero_stock_locate(
-    StockLocate stock_locate
+    StockLocate
 ) noexcept {
-    return stock_locate >= 0;
+    return true;
 }
 
 [[nodiscard]] constexpr bool is_valid_timestamp_ns(
@@ -160,6 +171,12 @@ struct Header {
 }
 
 [[nodiscard]] constexpr bool is_valid_shares(Shares shares) noexcept {
+    return shares > 0;
+}
+
+[[nodiscard]] constexpr bool is_valid_cross_shares(
+    CrossShares shares
+) noexcept {
     return shares > 0;
 }
 

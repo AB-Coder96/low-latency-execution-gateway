@@ -48,6 +48,10 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_message_type.cpp")
     fgep_add_test(test_itch_message_type test_itch_message_type.cpp)
 endif()
 
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_decode_encode.cpp")
+    fgep_add_test(test_itch_decode_encode test_itch_decode_encode.cpp)
+endif()
+
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_market_events.cpp")
     fgep_add_test(test_market_events test_market_events.cpp)
 endif()
