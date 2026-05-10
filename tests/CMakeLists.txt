@@ -52,12 +52,34 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_decode_encode.cpp")
     fgep_add_test(test_itch_decode_encode test_itch_decode_encode.cpp)
 endif()
 
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_ouch_decode_encode.cpp")
+    fgep_add_test(test_ouch_decode_encode test_ouch_decode_encode.cpp)
+endif()
+
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_market_events.cpp")
     fgep_add_test(test_market_events test_market_events.cpp)
 endif()
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_order_events.cpp")
     fgep_add_test(test_order_events test_order_events.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_moldudp64_decode_encode.cpp")
+    fgep_add_test(test_moldudp64_decode_encode test_moldudp64_decode_encode.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_moldudp64_itch_replay.cpp")
+    fgep_add_test(
+        test_moldudp64_itch_replay
+        test_moldudp64_itch_replay.cpp
+    )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_moldudp64_itch_integration.cpp")
+    fgep_add_test(
+        test_moldudp64_itch_integration
+        test_moldudp64_itch_integration.cpp
+    )
 endif()
 
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_memory_replay_source.cpp")

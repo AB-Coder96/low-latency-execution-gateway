@@ -107,7 +107,7 @@ int main() {
         assert(message.header.tracking_number == 2);
         assert(message.header.timestamp_ns == 1000);
         assert(message.order_reference_number == 100);
-        assert(message.side == Side::buy);
+        assert(message.side == fgep::itch::Side::buy);
         assert(message.shares == 250);
         assert(wire::fixed_ascii_equals(message.stock, "AAPL"));
         assert(message.price == 1902500);
@@ -152,7 +152,7 @@ int main() {
         assert(message.header.tracking_number == 3);
         assert(message.header.timestamp_ns == 2000);
         assert(message.order_reference_number == 101);
-        assert(message.side == Side::sell);
+        assert(message.side == fgep::itch::Side::sell);
         assert(message.shares == 100);
         assert(wire::fixed_ascii_equals(message.stock, "MSFT"));
         assert(message.price == 4201250);

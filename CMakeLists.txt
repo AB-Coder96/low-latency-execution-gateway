@@ -35,27 +35,40 @@ option(FGEP_ENABLE_WARNINGS "Enable strict compiler warnings" ON)
 # implementation files exist. As the project grows, this can become a normal
 # static library with real source files.
 
-add_library(fgep INTERFACE)
+add_library(
+    fgep
+    STATIC
+        src/core/time.cpp
+        src/core/types.cpp
+        src/itch/itch_decode.cpp
+        src/itch/itch_encode.cpp
+        src/ouch/ouch_decode.cpp
+        src/ouch/ouch_encode.cpp
+        src/moldudp64/moldudp64_decode.cpp
+        src/replay/moldudp64_itch_replay.cpp
+)
 
 target_include_directories(
     fgep
-    INTERFACE
+    PUBLIC
         ${PROJECT_SOURCE_DIR}/include
 )
 
 target_compile_features(
     fgep
-    INTERFACE
+    PUBLIC
         cxx_std_20
 )
 
+
+
 if(FGEP_ENABLE_WARNINGS)
     if(MSVC)
-        target_compile_options(fgep INTERFACE /W4 /permissive-)
+        target_compile_options(fgep PUBLIC /W4 /permissive-)
     else()
         target_compile_options(
             fgep
-            INTERFACE
+            PUBLIC
                 -Wall
                 -Wextra
                 -Wpedantic
