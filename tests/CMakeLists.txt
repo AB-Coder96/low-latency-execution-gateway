@@ -158,3 +158,21 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_instrument_directory_integratio
         test_itch_instrument_directory_integration.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_multi_venue_book_and_bbo.cpp")
+    fgep_add_test(
+        test_multi_venue_book_and_bbo
+        test_multi_venue_book_and_bbo.cpp
+    )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_instrument_directory.cpp")
+    fgep_add_test(test_instrument_directory test_instrument_directory.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_replay_to_books_integration.cpp")
+    fgep_add_test(
+        test_replay_to_books_integration
+        test_replay_to_books_integration.cpp
+    )
+endif()

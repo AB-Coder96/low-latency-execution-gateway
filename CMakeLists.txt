@@ -46,6 +46,12 @@ add_library(
         src/ouch/ouch_encode.cpp
         src/moldudp64/moldudp64_decode.cpp
         src/replay/moldudp64_itch_replay.cpp
+        src/book/symbol_order_book.cpp
+        src/book/venue_book.cpp
+        src/book/multi_venue_book.cpp
+        src/bbo/normalized_bbo.cpp
+        src/instrument/instrument_directory.cpp
+        src/replay/itch_replay_apply.cpp
 )
 
 target_include_directories(
