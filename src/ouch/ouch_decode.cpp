@@ -463,9 +463,10 @@ Result<CancelOrderMessage> decode_cancel_order_message(
         return {error, message};
     }
 
-    if (bytes.size() != length_cancel_order_without_appendage
-        && bytes.size() < length_cancel_order_base) {
-        return {ErrorCode::parse_error, message};
+    error = require_minimum_length(bytes, length_cancel_order_base);
+
+    if (error != ErrorCode::ok) {
+        return {error, message};
     }
 
     const auto user_ref_num = wire::read_u32_be(
@@ -486,37 +487,33 @@ Result<CancelOrderMessage> decode_cancel_order_message(
         return {quantity.error, message};
     }
 
+    const auto appendage_length = wire::read_u16_be(
+        bytes,
+        cancel_order_offset_appendage_length
+    );
+
+    if (appendage_length.failed()) {
+        return {appendage_length.error, message};
+    }
+
+    error = require_appendage_exact_length(
+        bytes,
+        length_cancel_order_base,
+        appendage_length.value
+    );
+
+    if (error != ErrorCode::ok) {
+        return {error, message};
+    }
+
     message.user_ref_num = user_ref_num.value;
     message.quantity = quantity.value;
-
-    if (bytes.size() == length_cancel_order_without_appendage) {
-        message.has_appendage_length = false;
-    } else {
-        const auto appendage_length = wire::read_u16_be(
-            bytes,
-            cancel_order_offset_appendage_length
-        );
-
-        if (appendage_length.failed()) {
-            return {appendage_length.error, message};
-        }
-
-        error = require_appendage_exact_length(
-            bytes,
-            length_cancel_order_base,
-            appendage_length.value
-        );
-
-        if (error != ErrorCode::ok) {
-            return {error, message};
-        }
-
-        message.has_appendage_length = true;
-        message.optional_appendage.assign(
-            bytes.begin() + static_cast<std::ptrdiff_t>(cancel_order_offset_optional_appendage),
-            bytes.end()
-        );
-    }
+    message.optional_appendage.assign(
+        bytes.begin() + static_cast<std::ptrdiff_t>(
+            cancel_order_offset_optional_appendage
+        ),
+        bytes.end()
+    );
 
     if (!is_valid_cancel_order_message(message)) {
         return {ErrorCode::parse_error, message};
@@ -524,5 +521,4 @@ Result<CancelOrderMessage> decode_cancel_order_message(
 
     return {ErrorCode::ok, message};
 }
-
-} // namespace fgep::ouch
+}

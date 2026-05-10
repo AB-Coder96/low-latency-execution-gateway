@@ -281,29 +281,38 @@ int main() {
     }
 
     // -------------------------------------------------------------------------
-    // Unsupported lengths for admin messages not implemented in first pass
-    // -------------------------------------------------------------------------
+// Additional supported and unsupported admin message lengths
+// -------------------------------------------------------------------------
 
-    {
-        const auto result = message_length(MessageType::stock_directory);
+{
+    const auto result = message_length(MessageType::stock_directory);
 
-        assert(result.failed());
-        assert(result.error == ErrorCode::unsupported);
-        assert(result.value == 0);
-    }
+    assert(result.ok());
+    assert(result.value == length_stock_directory);
+    assert(result.value == 39);
+}
 
-    {
-        const auto result = message_length(MessageType::noii);
+{
+    const auto result = message_length(MessageType::stock_trading_action);
 
-        assert(result.failed());
-        assert(result.error == ErrorCode::unsupported);
-        assert(result.value == 0);
-    }
+    assert(result.ok());
+    assert(result.value == length_stock_trading_action);
+    assert(result.value == 25);
+}
 
-    assert(has_supported_length(MessageType::system_event));
-    assert(has_supported_length(MessageType::add_order_no_mpid));
-    assert(!has_supported_length(MessageType::stock_directory));
-    assert(!has_supported_length(MessageType::noii));
+{
+    const auto result = message_length(MessageType::noii);
+
+    assert(result.failed());
+    assert(result.error == ErrorCode::unsupported);
+    assert(result.value == 0);
+}
+
+assert(has_supported_length(MessageType::system_event));
+assert(has_supported_length(MessageType::stock_directory));
+assert(has_supported_length(MessageType::stock_trading_action));
+assert(has_supported_length(MessageType::add_order_no_mpid));
+assert(!has_supported_length(MessageType::noii));
 
     return 0;
 }

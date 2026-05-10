@@ -53,6 +53,17 @@ namespace {
 // -----------------------------------------------------------------------------
 // Generic decode helpers
 // -----------------------------------------------------------------------------
+Result<MessageType> decode_message_type(
+    std::span<const std::byte> bytes
+) noexcept {
+    const auto type = read_char(bytes, 0);
+
+    if (type.failed()) {
+        return {type.error, MessageType::system_event};
+    }
+
+    return message_type_from_char(type.value);
+}
 
 Result<CrossTradeMessage> decode_cross_trade_message(
     std::span<const std::byte> bytes
@@ -1232,91 +1243,7 @@ Result<TradeNonCrossMessage> decode_trade_non_cross_message(
     return {ErrorCode::ok, message};
 }
 
-Result<CrossTradeMessage> decode_cross_trade_message(
-    std::span<const std::byte> bytes
-) noexcept {
-    CrossTradeMessage message{};
 
-    const auto type_and_length_error = require_exact_message_type_and_length(
-        bytes,
-        MessageType::cross_trade
-    );
-
-    if (type_and_length_error != ErrorCode::ok) {
-        return {type_and_length_error, message};
-    }
-
-    const auto header = decode_header(bytes);
-
-    if (header.failed()) {
-        return {header.error, message};
-    }
-
-    const auto header_error =
-        require_valid_header_for_stock_message(header.value);
-
-    if (header_error != ErrorCode::ok) {
-        return {header_error, message};
-    }
-
-    const auto shares =
-        wire::read_u64_be(bytes, cross_trade_offset_shares);
-
-    if (shares.failed()) {
-        return {shares.error, message};
-    }
-
-    if (shares.value > 0xFFFFFFFFULL) {
-        return {ErrorCode::invalid_argument, message};
-    }
-
-    const auto stock =
-        wire::read_fixed_ascii<8>(bytes, cross_trade_offset_stock);
-
-    if (stock.failed()) {
-        return {stock.error, message};
-    }
-
-    const auto cross_price =
-        wire::read_u32_be(bytes, cross_trade_offset_cross_price);
-
-    if (cross_price.failed()) {
-        return {cross_price.error, message};
-    }
-
-    const auto match_number =
-        wire::read_u64_be(bytes, cross_trade_offset_match_number);
-
-    if (match_number.failed()) {
-        return {match_number.error, message};
-    }
-
-    const auto cross_type =
-        read_char(bytes, cross_trade_offset_cross_type);
-
-    if (cross_type.failed()) {
-        return {cross_type.error, message};
-    }
-
-    const auto parsed_cross_type = cross_type_from_char(cross_type.value);
-
-    if (parsed_cross_type.failed()) {
-        return {parsed_cross_type.error, message};
-    }
-
-    message.header = header.value;
-    message.shares = static_cast<Shares>(shares.value);
-    message.stock = stock.value;
-    message.cross_price = cross_price.value;
-    message.match_number = match_number.value;
-    message.cross_type = parsed_cross_type.value;
-
-    if (!is_valid_cross_trade_message(message)) {
-        return {ErrorCode::parse_error, message};
-    }
-
-    return {ErrorCode::ok, message};
-}
 
 Result<BrokenTradeMessage> decode_broken_trade_message(
     std::span<const std::byte> bytes

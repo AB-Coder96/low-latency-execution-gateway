@@ -375,9 +375,6 @@ ErrorCode encode_cancel_order_message(
         return error;
     }
 
-    if (!message.has_appendage_length) {
-        return ErrorCode::ok;
-    }
 
     return write_appendage(
         bytes,
@@ -386,5 +383,4 @@ ErrorCode encode_cancel_order_message(
         message.optional_appendage
     );
 }
-
-} // namespace fgep::ouch
+}

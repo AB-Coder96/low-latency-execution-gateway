@@ -45,6 +45,7 @@ add_library(
         src/ouch/ouch_decode.cpp
         src/ouch/ouch_encode.cpp
         src/moldudp64/moldudp64_decode.cpp
+        src/moldudp64/moldudp64_encode.cpp
         src/replay/moldudp64_itch_replay.cpp
         src/book/symbol_order_book.cpp
         src/book/venue_book.cpp

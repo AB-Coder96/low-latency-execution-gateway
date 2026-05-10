@@ -402,7 +402,7 @@ int main() {
         assert(message.header.tracking_number == 9);
         assert(message.header.timestamp_ns == 8000);
         assert(message.order_reference_number == 101);
-        assert(message.side == Side::sell);
+        assert(message.side == fgep::itch::Side::sell);
         assert(message.shares == 100);
         assert(wire::fixed_ascii_equals(message.stock, "MSFT"));
         assert(message.price == 4201250);
@@ -573,16 +573,16 @@ int main() {
         assert(result.error == ErrorCode::parse_error);
     }
 
-    {
-        const std::array<std::byte, 1> unsupported_known_message{
-            cb('R') // Stock Directory is known but not implemented yet.
-        };
+{
+    const std::array<std::byte, 1> unsupported_known_message{
+        cb('I') // NOII is known but not implemented yet.
+    };
 
-        const auto result = decode_message(unsupported_known_message);
+    const auto result = decode_message(unsupported_known_message);
 
-        assert(result.failed());
-        assert(result.error == ErrorCode::unsupported);
-    }
+    assert(result.failed());
+    assert(result.error == ErrorCode::unsupported);
+}
 
     return 0;
 }
