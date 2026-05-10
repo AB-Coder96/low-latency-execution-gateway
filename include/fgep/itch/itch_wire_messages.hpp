@@ -59,6 +59,12 @@ enum class CrossType : char {
     closing_cross = 'C',
     ipo_or_halted = 'H'
 };
+enum class TradingState : char {
+    halted = 'H',
+    paused = 'P',
+    quotation_only = 'Q',
+    trading = 'T'
+};
 
 // -----------------------------------------------------------------------------
 // Exact field offsets
@@ -143,6 +149,27 @@ inline constexpr std::size_t cross_trade_offset_cross_type = 39;
 
 // B - Broken Trade
 inline constexpr std::size_t broken_trade_offset_match_number = 11;
+// R - Stock Directory
+inline constexpr std::size_t stock_directory_offset_stock = 11;
+inline constexpr std::size_t stock_directory_offset_market_category = 19;
+inline constexpr std::size_t stock_directory_offset_financial_status_indicator = 20;
+inline constexpr std::size_t stock_directory_offset_round_lot_size = 21;
+inline constexpr std::size_t stock_directory_offset_round_lots_only = 25;
+inline constexpr std::size_t stock_directory_offset_issue_classification = 26;
+inline constexpr std::size_t stock_directory_offset_issue_sub_type = 27;
+inline constexpr std::size_t stock_directory_offset_authenticity = 29;
+inline constexpr std::size_t stock_directory_offset_short_sale_threshold_indicator = 30;
+inline constexpr std::size_t stock_directory_offset_ipo_flag = 31;
+inline constexpr std::size_t stock_directory_offset_luld_reference_price_tier = 32;
+inline constexpr std::size_t stock_directory_offset_etp_flag = 33;
+inline constexpr std::size_t stock_directory_offset_etp_leverage_factor = 34;
+inline constexpr std::size_t stock_directory_offset_inverse_indicator = 38;
+
+// H - Stock Trading Action
+inline constexpr std::size_t stock_trading_action_offset_stock = 11;
+inline constexpr std::size_t stock_trading_action_offset_trading_state = 19;
+inline constexpr std::size_t stock_trading_action_offset_reserved = 20;
+inline constexpr std::size_t stock_trading_action_offset_reason = 21;
 
 // -----------------------------------------------------------------------------
 // Decoded wire-message structs
@@ -151,6 +178,32 @@ inline constexpr std::size_t broken_trade_offset_match_number = 11;
 struct SystemEventMessage {
     Header header{};
     SystemEventCode event_code{SystemEventCode::start_of_messages};
+};
+
+struct StockDirectoryMessage {
+    Header header{};
+    StockSymbol stock{};
+    char market_category{' '};
+    char financial_status_indicator{' '};
+    RoundLotSize round_lot_size{};
+    char round_lots_only{'N'};
+    char issue_classification{' '};
+    IssueSubType issue_sub_type{};
+    char authenticity{' '};
+    char short_sale_threshold_indicator{' '};
+    char ipo_flag{' '};
+    char luld_reference_price_tier{' '};
+    char etp_flag{' '};
+    EtpLeverageFactor etp_leverage_factor{};
+    char inverse_indicator{' '};
+};
+
+struct StockTradingActionMessage {
+    Header header{};
+    StockSymbol stock{};
+    TradingState trading_state{TradingState::halted};
+    char reserved{' '};
+    ReasonCode4 reason{};
 };
 
 struct AddOrderNoMpidMessage {
@@ -233,6 +286,8 @@ struct BrokenTradeMessage {
 
 using Message = std::variant<
     SystemEventMessage,
+    StockDirectoryMessage,
+    StockTradingActionMessage,
     AddOrderNoMpidMessage,
     AddOrderWithMpidMessage,
     OrderExecutedMessage,
@@ -264,6 +319,11 @@ using Message = std::variant<
 [[nodiscard]] constexpr char to_char(CrossType value) noexcept {
     return static_cast<char>(value);
 }
+
+[[nodiscard]] constexpr char to_char(TradingState value) noexcept {
+    return static_cast<char>(value);
+}
+
 
 [[nodiscard]] constexpr Result<SystemEventCode> system_event_code_from_char(
     char value
@@ -325,6 +385,23 @@ using Message = std::variant<
             return {ErrorCode::ok, CrossType::ipo_or_halted};
         default:
             return {ErrorCode::parse_error, CrossType::opening_cross};
+    }
+}
+
+[[nodiscard]] constexpr Result<TradingState> trading_state_from_char(
+    char value
+) noexcept {
+    switch (value) {
+        case 'H':
+            return {ErrorCode::ok, TradingState::halted};
+        case 'P':
+            return {ErrorCode::ok, TradingState::paused};
+        case 'Q':
+            return {ErrorCode::ok, TradingState::quotation_only};
+        case 'T':
+            return {ErrorCode::ok, TradingState::trading};
+        default:
+            return {ErrorCode::parse_error, TradingState::halted};
     }
 }
 
@@ -458,6 +535,19 @@ using Message = std::variant<
     return MessageType::broken_trade;
 }
 
+
+[[nodiscard]] constexpr MessageType message_type(
+    const StockDirectoryMessage&
+) noexcept {
+    return MessageType::stock_directory;
+}
+
+[[nodiscard]] constexpr MessageType message_type(
+    const StockTradingActionMessage&
+) noexcept {
+    return MessageType::stock_trading_action;
+}
+
 [[nodiscard]] constexpr std::size_t wire_length(
     const SystemEventMessage&
 ) noexcept {
@@ -523,7 +613,17 @@ using Message = std::variant<
 ) noexcept {
     return length_broken_trade;
 }
+[[nodiscard]] constexpr std::size_t wire_length(
+    const StockDirectoryMessage&
+) noexcept {
+    return length_stock_directory;
+}
 
+[[nodiscard]] constexpr std::size_t wire_length(
+    const StockTradingActionMessage&
+) noexcept {
+    return length_stock_trading_action;
+}
 // -----------------------------------------------------------------------------
 // Validation helpers
 // -----------------------------------------------------------------------------
@@ -628,6 +728,45 @@ using Message = std::variant<
 ) noexcept {
     return is_valid_header_for_stock_message(message.header)
         && is_valid_match_number(message.match_number);
+}
+
+[[nodiscard]] constexpr bool is_valid_protocol_char_or_space(
+    char value
+) noexcept {
+    return wire::is_printable_ascii_or_space(value);
+}
+
+[[nodiscard]] constexpr bool is_valid_stock_directory_message(
+    const StockDirectoryMessage& message
+) noexcept {
+    return is_valid_header_for_stock_message(message.header)
+        && wire::is_valid_fixed_ascii(message.stock)
+        && is_valid_protocol_char_or_space(message.market_category)
+        && is_valid_protocol_char_or_space(
+            message.financial_status_indicator
+        )
+        && is_valid_protocol_char_or_space(message.round_lots_only)
+        && is_valid_protocol_char_or_space(message.issue_classification)
+        && wire::is_valid_fixed_ascii(message.issue_sub_type)
+        && is_valid_protocol_char_or_space(message.authenticity)
+        && is_valid_protocol_char_or_space(
+            message.short_sale_threshold_indicator
+        )
+        && is_valid_protocol_char_or_space(message.ipo_flag)
+        && is_valid_protocol_char_or_space(
+            message.luld_reference_price_tier
+        )
+        && is_valid_protocol_char_or_space(message.etp_flag)
+        && is_valid_protocol_char_or_space(message.inverse_indicator);
+}
+
+[[nodiscard]] constexpr bool is_valid_stock_trading_action_message(
+    const StockTradingActionMessage& message
+) noexcept {
+    return is_valid_header_for_stock_message(message.header)
+        && wire::is_valid_fixed_ascii(message.stock)
+        && is_valid_protocol_char_or_space(message.reserved)
+        && wire::is_valid_fixed_ascii(message.reason);
 }
 
 } // namespace fgep::itch

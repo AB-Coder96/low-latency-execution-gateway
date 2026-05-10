@@ -198,6 +198,7 @@ enum class MessageType : char {
             return "retail_price_improvement_indicator";
         case MessageType::direct_listing_with_capital_raise:
             return "direct_listing_with_capital_raise";
+
     }
 
     return "unknown";
@@ -313,9 +314,6 @@ enum class MessageType : char {
             return {ErrorCode::ok, length_cross_trade};
         case MessageType::broken_trade:
             return {ErrorCode::ok, length_broken_trade};
-
-        case MessageType::stock_directory:
-        case MessageType::stock_trading_action:
         case MessageType::reg_sho_restriction:
         case MessageType::market_participant_position:
         case MessageType::mwcb_decline_level:
@@ -327,6 +325,10 @@ enum class MessageType : char {
         case MessageType::retail_price_improvement_indicator:
         case MessageType::direct_listing_with_capital_raise:
             return {ErrorCode::unsupported, 0};
+        case MessageType::stock_directory:
+            return {ErrorCode::ok, length_stock_directory};
+        case MessageType::stock_trading_action:
+            return {ErrorCode::ok, length_stock_trading_action};
     }
 
     return {ErrorCode::unsupported, 0};

@@ -220,6 +220,26 @@ Result<Message> decode_message(std::span<const std::byte> bytes) noexcept {
             return {ErrorCode::ok, Message{result.value}};
         }
 
+        case MessageType::stock_directory: {
+            const auto result = decode_stock_directory_message(bytes);
+
+            if (result.failed()) {
+                return {result.error, Message{}};
+            }
+
+            return {ErrorCode::ok, Message{result.value}};
+        }
+
+        case MessageType::stock_trading_action: {
+            const auto result = decode_stock_trading_action_message(bytes);
+
+            if (result.failed()) {
+                return {result.error, Message{}};
+            }
+
+            return {ErrorCode::ok, Message{result.value}};
+        }
+
         case MessageType::add_order_no_mpid: {
             const auto result = decode_add_order_no_mpid_message(bytes);
 
@@ -321,8 +341,7 @@ Result<Message> decode_message(std::span<const std::byte> bytes) noexcept {
             return {ErrorCode::ok, Message{result.value}};
         }
 
-        case MessageType::stock_directory:
-        case MessageType::stock_trading_action:
+
         case MessageType::reg_sho_restriction:
         case MessageType::market_participant_position:
         case MessageType::mwcb_decline_level:
@@ -383,6 +402,249 @@ Result<SystemEventMessage> decode_system_event_message(
 
     message.header = header.value;
     message.event_code = parsed_event_code.value;
+
+    return {ErrorCode::ok, message};
+}
+
+
+Result<StockDirectoryMessage> decode_stock_directory_message(
+    std::span<const std::byte> bytes
+) noexcept {
+    StockDirectoryMessage message{};
+
+    const auto type_and_length_error = require_exact_message_type_and_length(
+        bytes,
+        MessageType::stock_directory
+    );
+
+    if (type_and_length_error != ErrorCode::ok) {
+        return {type_and_length_error, message};
+    }
+
+    const auto header = decode_header(bytes);
+
+    if (header.failed()) {
+        return {header.error, message};
+    }
+
+    const auto header_error =
+        require_valid_header_for_stock_message(header.value);
+
+    if (header_error != ErrorCode::ok) {
+        return {header_error, message};
+    }
+
+    const auto stock = wire::read_fixed_ascii<8>(
+        bytes,
+        stock_directory_offset_stock
+    );
+
+    if (stock.failed()) {
+        return {stock.error, message};
+    }
+
+    const auto market_category =
+        read_char(bytes, stock_directory_offset_market_category);
+
+    if (market_category.failed()) {
+        return {market_category.error, message};
+    }
+
+    const auto financial_status_indicator = read_char(
+        bytes,
+        stock_directory_offset_financial_status_indicator
+    );
+
+    if (financial_status_indicator.failed()) {
+        return {financial_status_indicator.error, message};
+    }
+
+    const auto round_lot_size = wire::read_u32_be(
+        bytes,
+        stock_directory_offset_round_lot_size
+    );
+
+    if (round_lot_size.failed()) {
+        return {round_lot_size.error, message};
+    }
+
+    const auto round_lots_only =
+        read_char(bytes, stock_directory_offset_round_lots_only);
+
+    if (round_lots_only.failed()) {
+        return {round_lots_only.error, message};
+    }
+
+    const auto issue_classification =
+        read_char(bytes, stock_directory_offset_issue_classification);
+
+    if (issue_classification.failed()) {
+        return {issue_classification.error, message};
+    }
+
+    const auto issue_sub_type = wire::read_fixed_ascii<2>(
+        bytes,
+        stock_directory_offset_issue_sub_type
+    );
+
+    if (issue_sub_type.failed()) {
+        return {issue_sub_type.error, message};
+    }
+
+    const auto authenticity =
+        read_char(bytes, stock_directory_offset_authenticity);
+
+    if (authenticity.failed()) {
+        return {authenticity.error, message};
+    }
+
+    const auto short_sale_threshold_indicator = read_char(
+        bytes,
+        stock_directory_offset_short_sale_threshold_indicator
+    );
+
+    if (short_sale_threshold_indicator.failed()) {
+        return {short_sale_threshold_indicator.error, message};
+    }
+
+    const auto ipo_flag = read_char(bytes, stock_directory_offset_ipo_flag);
+
+    if (ipo_flag.failed()) {
+        return {ipo_flag.error, message};
+    }
+
+    const auto luld_reference_price_tier = read_char(
+        bytes,
+        stock_directory_offset_luld_reference_price_tier
+    );
+
+    if (luld_reference_price_tier.failed()) {
+        return {luld_reference_price_tier.error, message};
+    }
+
+    const auto etp_flag = read_char(bytes, stock_directory_offset_etp_flag);
+
+    if (etp_flag.failed()) {
+        return {etp_flag.error, message};
+    }
+
+    const auto etp_leverage_factor = wire::read_u32_be(
+        bytes,
+        stock_directory_offset_etp_leverage_factor
+    );
+
+    if (etp_leverage_factor.failed()) {
+        return {etp_leverage_factor.error, message};
+    }
+
+    const auto inverse_indicator =
+        read_char(bytes, stock_directory_offset_inverse_indicator);
+
+    if (inverse_indicator.failed()) {
+        return {inverse_indicator.error, message};
+    }
+
+    message.header = header.value;
+    message.stock = stock.value;
+    message.market_category = market_category.value;
+    message.financial_status_indicator = financial_status_indicator.value;
+    message.round_lot_size = round_lot_size.value;
+    message.round_lots_only = round_lots_only.value;
+    message.issue_classification = issue_classification.value;
+    message.issue_sub_type = issue_sub_type.value;
+    message.authenticity = authenticity.value;
+    message.short_sale_threshold_indicator =
+        short_sale_threshold_indicator.value;
+    message.ipo_flag = ipo_flag.value;
+    message.luld_reference_price_tier = luld_reference_price_tier.value;
+    message.etp_flag = etp_flag.value;
+    message.etp_leverage_factor = etp_leverage_factor.value;
+    message.inverse_indicator = inverse_indicator.value;
+
+    if (!is_valid_stock_directory_message(message)) {
+        return {ErrorCode::parse_error, message};
+    }
+
+    return {ErrorCode::ok, message};
+}
+
+Result<StockTradingActionMessage> decode_stock_trading_action_message(
+    std::span<const std::byte> bytes
+) noexcept {
+    StockTradingActionMessage message{};
+
+    const auto type_and_length_error = require_exact_message_type_and_length(
+        bytes,
+        MessageType::stock_trading_action
+    );
+
+    if (type_and_length_error != ErrorCode::ok) {
+        return {type_and_length_error, message};
+    }
+
+    const auto header = decode_header(bytes);
+
+    if (header.failed()) {
+        return {header.error, message};
+    }
+
+    const auto header_error =
+        require_valid_header_for_stock_message(header.value);
+
+    if (header_error != ErrorCode::ok) {
+        return {header_error, message};
+    }
+
+    const auto stock = wire::read_fixed_ascii<8>(
+        bytes,
+        stock_trading_action_offset_stock
+    );
+
+    if (stock.failed()) {
+        return {stock.error, message};
+    }
+
+    const auto trading_state_char = read_char(
+        bytes,
+        stock_trading_action_offset_trading_state
+    );
+
+    if (trading_state_char.failed()) {
+        return {trading_state_char.error, message};
+    }
+
+    const auto trading_state =
+        trading_state_from_char(trading_state_char.value);
+
+    if (trading_state.failed()) {
+        return {trading_state.error, message};
+    }
+
+    const auto reserved =
+        read_char(bytes, stock_trading_action_offset_reserved);
+
+    if (reserved.failed()) {
+        return {reserved.error, message};
+    }
+
+    const auto reason = wire::read_fixed_ascii<4>(
+        bytes,
+        stock_trading_action_offset_reason
+    );
+
+    if (reason.failed()) {
+        return {reason.error, message};
+    }
+
+    message.header = header.value;
+    message.stock = stock.value;
+    message.trading_state = trading_state.value;
+    message.reserved = reserved.value;
+    message.reason = reason.value;
+
+    if (!is_valid_stock_trading_action_message(message)) {
+        return {ErrorCode::parse_error, message};
+    }
 
     return {ErrorCode::ok, message};
 }

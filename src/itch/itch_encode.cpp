@@ -171,6 +171,14 @@ ErrorCode encode_message(
             ) {
                 return encode_cross_trade_message(bytes, concrete_message);
             } else if constexpr (
+                std::is_same_v<MessageT, StockDirectoryMessage>
+            ) {
+                return encode_stock_directory_message(bytes, concrete_message);
+            } else if constexpr (
+                std::is_same_v<MessageT, StockTradingActionMessage>
+            ) {
+                return encode_stock_trading_action_message(bytes, concrete_message);            
+            } else if constexpr (
                 std::is_same_v<MessageT, BrokenTradeMessage>
             ) {
                 return encode_broken_trade_message(bytes, concrete_message);
@@ -221,6 +229,250 @@ ErrorCode encode_system_event_message(
         bytes,
         system_event_offset_event_code,
         to_char(message.event_code)
+    );
+}
+
+ErrorCode encode_stock_directory_message(
+    std::span<std::byte> bytes,
+    const StockDirectoryMessage& message
+) noexcept {
+    auto error = require_exact_encode_length(
+        bytes,
+        MessageType::stock_directory
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    if (!is_valid_stock_directory_message(message)) {
+        return ErrorCode::invalid_argument;
+    }
+
+    error = require_valid_stock_header_for_encode(message.header);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = encode_message_type(bytes, MessageType::stock_directory);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = encode_header(bytes, message.header);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = wire::write_fixed_ascii<8>(
+        bytes,
+        stock_directory_offset_stock,
+        message.stock
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_market_category,
+        message.market_category
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_financial_status_indicator,
+        message.financial_status_indicator
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = wire::write_u32_be(
+        bytes,
+        stock_directory_offset_round_lot_size,
+        message.round_lot_size
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_round_lots_only,
+        message.round_lots_only
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_issue_classification,
+        message.issue_classification
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = wire::write_fixed_ascii<2>(
+        bytes,
+        stock_directory_offset_issue_sub_type,
+        message.issue_sub_type
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_authenticity,
+        message.authenticity
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_short_sale_threshold_indicator,
+        message.short_sale_threshold_indicator
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_ipo_flag,
+        message.ipo_flag
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_luld_reference_price_tier,
+        message.luld_reference_price_tier
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_directory_offset_etp_flag,
+        message.etp_flag
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = wire::write_u32_be(
+        bytes,
+        stock_directory_offset_etp_leverage_factor,
+        message.etp_leverage_factor
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    return write_char(
+        bytes,
+        stock_directory_offset_inverse_indicator,
+        message.inverse_indicator
+    );
+}
+
+ErrorCode encode_stock_trading_action_message(
+    std::span<std::byte> bytes,
+    const StockTradingActionMessage& message
+) noexcept {
+    auto error = require_exact_encode_length(
+        bytes,
+        MessageType::stock_trading_action
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    if (!is_valid_stock_trading_action_message(message)) {
+        return ErrorCode::invalid_argument;
+    }
+
+    error = require_valid_stock_header_for_encode(message.header);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = encode_message_type(bytes, MessageType::stock_trading_action);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = encode_header(bytes, message.header);
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = wire::write_fixed_ascii<8>(
+        bytes,
+        stock_trading_action_offset_stock,
+        message.stock
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_trading_action_offset_trading_state,
+        to_char(message.trading_state)
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    error = write_char(
+        bytes,
+        stock_trading_action_offset_reserved,
+        message.reserved
+    );
+
+    if (error != ErrorCode::ok) {
+        return error;
+    }
+
+    return wire::write_fixed_ascii<4>(
+        bytes,
+        stock_trading_action_offset_reason,
+        message.reason
     );
 }
 

@@ -12,37 +12,6 @@ namespace fgep::itch {
 // -----------------------------------------------------------------------------
 // Nasdaq TotalView-ITCH 5.0 byte encoder API
 // -----------------------------------------------------------------------------
-//
-// This header declares the message-to-byte encode functions for ITCH payload
-// messages.
-//
-// This is the byte-to-byte protocol layer:
-//
-//   decoded itch::*Message struct
-//   -> explicit offset writes
-//   -> raw ITCH payload bytes
-//
-// Important:
-//   These functions encode one ITCH payload message at a time.
-//   They do not encode SoupBinTCP framing.
-//   They do not encode MoldUDP64 packet framing.
-//   They do not reinterpret structs as raw bytes.
-//
-// Transport framing should be handled by a separate module later:
-//
-//   soupbintcp/
-//   moldudp64/
-//
-// The output span must point at the start of the ITCH payload:
-//
-//   bytes[0] = ITCH Message Type
-//
-// Byte-to-byte tests should verify:
-//
-//   original bytes
-//   -> decode_message(original bytes)
-//   -> encode_message(decoded message)
-//   -> exact same bytes
 
 // -----------------------------------------------------------------------------
 // Generic encode helpers
@@ -147,6 +116,16 @@ namespace fgep::itch {
     const BrokenTradeMessage& message
 ) noexcept;
 
+[[nodiscard]] ErrorCode encode_stock_directory_message(
+    std::span<std::byte> bytes,
+    const StockDirectoryMessage& message
+) noexcept;
+
+[[nodiscard]] ErrorCode encode_stock_trading_action_message(
+    std::span<std::byte> bytes,
+    const StockTradingActionMessage& message
+) noexcept;
+
 // -----------------------------------------------------------------------------
 // Encode support checks
 // -----------------------------------------------------------------------------
@@ -156,6 +135,8 @@ namespace fgep::itch {
 ) noexcept {
     switch (message_type) {
         case MessageType::system_event:
+        case MessageType::stock_directory:
+        case MessageType::stock_trading_action:
         case MessageType::add_order_no_mpid:
         case MessageType::add_order_with_mpid:
         case MessageType::order_executed:
@@ -168,8 +149,6 @@ namespace fgep::itch {
         case MessageType::broken_trade:
             return true;
 
-        case MessageType::stock_directory:
-        case MessageType::stock_trading_action:
         case MessageType::reg_sho_restriction:
         case MessageType::market_participant_position:
         case MessageType::mwcb_decline_level:

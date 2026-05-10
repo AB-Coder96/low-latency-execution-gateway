@@ -141,6 +141,15 @@ decode_order_executed_with_price_message(
     std::span<const std::byte> bytes
 ) noexcept;
 
+[[nodiscard]] Result<StockDirectoryMessage> decode_stock_directory_message(
+    std::span<const std::byte> bytes
+) noexcept;
+
+[[nodiscard]] Result<StockTradingActionMessage>
+decode_stock_trading_action_message(
+    std::span<const std::byte> bytes
+) noexcept;
+
 // -----------------------------------------------------------------------------
 // Decode support checks
 // -----------------------------------------------------------------------------
@@ -150,6 +159,8 @@ decode_order_executed_with_price_message(
 ) noexcept {
     switch (message_type) {
         case MessageType::system_event:
+        case MessageType::stock_directory:
+        case MessageType::stock_trading_action:
         case MessageType::add_order_no_mpid:
         case MessageType::add_order_with_mpid:
         case MessageType::order_executed:
@@ -162,8 +173,7 @@ decode_order_executed_with_price_message(
         case MessageType::broken_trade:
             return true;
 
-        case MessageType::stock_directory:
-        case MessageType::stock_trading_action:
+
         case MessageType::reg_sho_restriction:
         case MessageType::market_participant_position:
         case MessageType::mwcb_decline_level:

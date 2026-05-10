@@ -137,3 +137,17 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_zero_post_halt_leak.cpp")
     fgep_add_test(test_zero_post_halt_leak test_zero_post_halt_leak.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_stock_directory_decode_encode.cpp")
+    fgep_add_test(
+        test_itch_stock_directory_decode_encode
+        test_itch_stock_directory_decode_encode.cpp
+    )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_stock_trading_action_decode_encode.cpp")
+    fgep_add_test(
+        test_itch_stock_trading_action_decode_encode
+        test_itch_stock_trading_action_decode_encode.cpp
+    )
+endif()

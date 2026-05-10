@@ -42,26 +42,15 @@ namespace fgep::itch {
 
 using StockLocate = std::uint16_t;
 using TrackingNumber = std::uint16_t;
-
 using TimestampNs = fgep::TimestampNs;
-
 using OrderReferenceNumber = std::uint64_t;
 using MatchNumber = std::uint64_t;
-
 using Shares = std::uint32_t;
-
-// Cross Trade messages use an 8-byte shares field.
 using CrossShares = std::uint64_t;
-
-// Price(4): unsigned integer with 4 implied decimal places.
-// Example:
-//   1012500 means 101.2500
 using Price4 = std::uint32_t;
-
-// Price(8): unsigned integer with 8 implied decimal places.
-// Some administrative messages use Price(8).
 using Price8 = std::uint64_t;
-
+using RoundLotSize = std::uint32_t;
+using EtpLeverageFactor = std::uint32_t;
 // Fixed-width ASCII fields.
 using StockSymbol = wire::FixedAscii<8>;
 using Mpid = wire::FixedAscii<4>;
@@ -79,7 +68,8 @@ inline constexpr TimestampNs nanoseconds_per_day =
 
 inline constexpr TimestampNs max_timestamp_ns_since_midnight =
     nanoseconds_per_day - 1ULL;
-
+inline constexpr std::size_t length_stock_directory = 39;
+inline constexpr std::size_t length_stock_trading_action = 25;
 // -----------------------------------------------------------------------------
 // Common ITCH header layout
 // -----------------------------------------------------------------------------
