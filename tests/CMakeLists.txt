@@ -98,10 +98,6 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_normalized_bbo.cpp")
     fgep_add_test(test_normalized_bbo test_normalized_bbo.cpp)
 endif()
 
-if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_lifecycle_engine.cpp")
-    fgep_add_test(test_lifecycle_engine test_lifecycle_engine.cpp)
-endif()
-
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_risk_supervisor.cpp")
     fgep_add_test(test_risk_supervisor test_risk_supervisor.cpp)
 endif()
@@ -175,4 +171,8 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_replay_to_books_integration.cpp")
         test_replay_to_books_integration
         test_replay_to_books_integration.cpp
     )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_lifecycle_engine.cpp")
+    fgep_add_test(test_lifecycle_engine test_lifecycle_engine.cpp)
 endif()

@@ -53,6 +53,7 @@ add_library(
         src/bbo/normalized_bbo.cpp
         src/instrument/instrument_directory.cpp
         src/replay/itch_replay_apply.cpp
+        src/execution/order_lifecycle.cpp
 )
 
 target_include_directories(
