@@ -1,5 +1,4 @@
 #include "fgep/moldudp64/moldudp64_decode.hpp"
-#include "fgep/wire/fixed_ascii.hpp"
 
 #include <array>
 #include <cassert>
@@ -10,6 +9,25 @@ namespace {
 [[nodiscard]] constexpr std::byte ub(unsigned int value) noexcept {
     return static_cast<std::byte>(static_cast<unsigned char>(value));
 }
+
+
+[[nodiscard]] bool session_equals(
+    const fgep::moldudp64::Session& session,
+    const char (&text)[11]
+) noexcept {
+    for (std::size_t index = 0; index < session.size(); ++index) {
+        const auto expected = static_cast<std::byte>(
+            static_cast<unsigned char>(text[index])
+        );
+
+        if (session[index] != expected) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 [[nodiscard]] constexpr std::byte cb(char value) noexcept {
     return static_cast<std::byte>(static_cast<unsigned char>(value));
@@ -39,7 +57,7 @@ int main() {
         const auto& packet = result.value;
 
         assert(packet.kind == PacketKind::data);
-        assert(wire::fixed_ascii_equals(packet.session, "SESSION001"));
+        assert(session_equals(packet.session, "SESSION001"));
         assert(packet.first_sequence_number == 10);
         assert(packet.message_count == 2);
         assert(packet.messages.size() == 2);

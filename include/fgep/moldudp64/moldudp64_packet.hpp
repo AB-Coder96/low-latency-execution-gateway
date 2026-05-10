@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <span>
 #include <vector>
+#include <string_view>
 
 namespace fgep::moldudp64 {
 
@@ -39,6 +40,29 @@ struct RequestPacket {
     return message_count == heartbeat_message_count
         || message_count == end_of_session_message_count;
 }
+
+
+[[nodiscard]] inline bool session_equals(
+    const Session& session,
+    std::string_view text
+) noexcept {
+    if (text.size() != session.size()) {
+        return false;
+    }
+
+    for (std::size_t index = 0; index < session.size(); ++index) {
+        const auto expected = static_cast<std::byte>(
+            static_cast<unsigned char>(text[index])
+        );
+
+        if (session[index] != expected) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 [[nodiscard]] constexpr PacketKind packet_kind_from_message_count(
     MessageCount message_count
