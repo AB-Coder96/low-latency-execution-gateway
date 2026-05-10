@@ -151,3 +151,10 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_stock_trading_action_decode_enc
         test_itch_stock_trading_action_decode_encode.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_itch_instrument_directory_integration.cpp")
+    fgep_add_test(
+        test_itch_instrument_directory_integration
+        test_itch_instrument_directory_integration.cpp
+    )
+endif()
