@@ -57,6 +57,7 @@ add_library(
         src/risk/risk_supervisor.cpp
         src/execution/simulated_execution_engine.cpp
         src/telemetry/pipeline_telemetry.cpp
+        src/telemetry/latency_summary.cpp
 )
 
 target_include_directories(

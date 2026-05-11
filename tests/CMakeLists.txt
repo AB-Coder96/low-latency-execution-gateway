@@ -187,3 +187,11 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_execution_scenarios.cpp")
     fgep_add_test(test_execution_scenarios test_execution_scenarios.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_pipeline_telemetry.cpp")
+    fgep_add_test(test_pipeline_telemetry test_pipeline_telemetry.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_latency_summary.cpp")
+    fgep_add_test(test_latency_summary test_latency_summary.cpp)
+endif()
