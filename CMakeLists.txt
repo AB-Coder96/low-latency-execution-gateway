@@ -54,6 +54,7 @@ add_library(
         src/instrument/instrument_directory.cpp
         src/replay/itch_replay_apply.cpp
         src/execution/order_lifecycle.cpp
+        src/risk/risk_supervisor.cpp
 )
 
 target_include_directories(
