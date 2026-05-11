@@ -183,3 +183,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_simulated_execution_engine.cpp")
         test_simulated_execution_engine.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_execution_scenarios.cpp")
+    fgep_add_test(test_execution_scenarios test_execution_scenarios.cpp)
+endif()
