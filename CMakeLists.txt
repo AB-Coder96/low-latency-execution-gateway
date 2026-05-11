@@ -56,6 +56,7 @@ add_library(
         src/execution/order_lifecycle.cpp
         src/risk/risk_supervisor.cpp
         src/execution/simulated_execution_engine.cpp
+        src/telemetry/pipeline_telemetry.cpp
 )
 
 target_include_directories(
