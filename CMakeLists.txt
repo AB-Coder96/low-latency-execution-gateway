@@ -55,6 +55,7 @@ add_library(
         src/replay/itch_replay_apply.cpp
         src/execution/order_lifecycle.cpp
         src/risk/risk_supervisor.cpp
+        src/execution/simulated_execution_engine.cpp
 )
 
 target_include_directories(

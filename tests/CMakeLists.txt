@@ -176,3 +176,10 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_risk_supervisor.cpp")
     fgep_add_test(test_risk_supervisor test_risk_supervisor.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_simulated_execution_engine.cpp")
+    fgep_add_test(
+        test_simulated_execution_engine
+        test_simulated_execution_engine.cpp
+    )
+endif()
