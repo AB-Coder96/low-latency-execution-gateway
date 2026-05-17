@@ -221,3 +221,7 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_execution_backend.cpp")
     fgep_add_test(test_execution_backend test_execution_backend.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_encoded_backend_submit.cpp")
+    fgep_add_test(test_encoded_backend_submit test_encoded_backend_submit.cpp)
+endif()

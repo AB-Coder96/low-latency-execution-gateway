@@ -64,6 +64,7 @@ add_library(
         src/reference/symbol_fixture.cpp
         src/reference/venue_fixture.cpp
         src/execution/execution_backend.cpp
+        src/execution/encoded_backend_submit.cpp
 )
 
 target_include_directories(
