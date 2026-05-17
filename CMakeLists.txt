@@ -104,6 +104,7 @@ add_library(
         src/execution/dpdk_backend.cpp
         src/execution/backend_factory.cpp
         src/gate/guardrail_state.cpp
+        src/gate/permissive_gate.cpp
 )
 
 target_include_directories(

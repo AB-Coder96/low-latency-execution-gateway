@@ -245,3 +245,7 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_guardrail_state.cpp")
     fgep_add_test(test_guardrail_state test_guardrail_state.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_permissive_gate.cpp")
+    fgep_add_test(test_permissive_gate test_permissive_gate.cpp)
+endif()
