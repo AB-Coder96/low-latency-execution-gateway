@@ -195,3 +195,10 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_latency_summary.cpp")
     fgep_add_test(test_latency_summary test_latency_summary.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_order_candidate_generator.cpp")
+    fgep_add_test(
+        test_order_candidate_generator
+        test_order_candidate_generator.cpp
+    )
+endif()
