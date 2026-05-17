@@ -75,6 +75,79 @@ int main() {
         assert(contains_text("abcdef", "bcd"));
         assert(!contains_text("abcdef", "xyz"));
     }
+{
+    BackendBenchmarkResult result{
+        .technologies = {
+            BackendBenchmarkTechnologyResult{
+                .technology = fgep::execution::BackendTechnology::recording,
+                .submission_count = 3,
+                .accepted_count = 3,
+                .rejected_count = 0,
+                .simulated_elapsed_ns = 3'100,
+                .submissions_per_second = 967'741,
+                .submit_latency = fgep::telemetry::LatencySummary{
+                    .count = 3,
+                    .min_ns = 1'000,
+                    .max_ns = 1'100,
+                    .mean_ns = 1'033,
+                    .p50_ns = 1'000,
+                    .p90_ns = 1'100,
+                    .p99_ns = 1'100,
+                    .p999_ns = 1'100
+                }
+            },
+            BackendBenchmarkTechnologyResult{
+                .technology = fgep::execution::BackendTechnology::afxdp,
+                .submission_count = 3,
+                .accepted_count = 0,
+                .rejected_count = 3,
+                .simulated_elapsed_ns = 3'100,
+                .submissions_per_second = 967'741,
+                .submit_latency = fgep::telemetry::LatencySummary{
+                    .count = 3,
+                    .min_ns = 1'000,
+                    .max_ns = 1'100,
+                    .mean_ns = 1'033,
+                    .p50_ns = 1'000,
+                    .p90_ns = 1'100,
+                    .p99_ns = 1'100,
+                    .p999_ns = 1'100
+                }
+            }
+        }
+    };
 
+    const auto report = format_backend_benchmark_markdown(
+        result,
+        BenchmarkReportMetadata{
+            .title = "Backend Comparison",
+            .backend_name = "multi-backend",
+            .notes = "Deterministic backend comparison."
+        }
+    );
+
+    assert(contains_text(report, "# Backend Comparison"));
+    assert(contains_text(report, "Backend: `multi-backend`"));
+    assert(contains_text(report, "Deterministic backend comparison."));
+    assert(contains_text(report, "## Backend comparison"));
+    assert(contains_text(report, "| recording | 3 | 3 | 0 | 3100 ns | 967741 candidates/s | 1000 | 1100 | 1100 |"));
+    assert(contains_text(report, "| afxdp | 3 | 0 | 3 | 3100 ns | 967741 candidates/s | 1000 | 1100 | 1100 |"));
+}
+
+{
+    BackendBenchmarkResult result{};
+
+    const auto report = format_backend_benchmark_markdown(
+        result,
+        BenchmarkReportMetadata{
+            .title = "Empty Backend Comparison",
+            .backend_name = "none",
+            .notes = {}
+        }
+    );
+
+    assert(contains_text(report, "# Empty Backend Comparison"));
+    assert(contains_text(report, "| n/a | 0 | 0 | 0 | 0 ns | 0 candidates/s | n/a | n/a | n/a |"));
+}
     return 0;
 }

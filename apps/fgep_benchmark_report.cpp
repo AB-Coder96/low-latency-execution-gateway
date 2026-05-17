@@ -1,0 +1,213 @@
+#include "fgep/bench/backend_benchmark.hpp"
+#include "fgep/bench/benchmark_report.hpp"
+#include "fgep/bench/execution_benchmark.hpp"
+#include "fgep/gate/guardrail_update_benchmark.hpp"
+#include "fgep/wire/fixed_ascii.hpp"
+
+#include <chrono>
+#include <ctime>
+#include <filesystem>
+#include <fstream>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <string>
+
+namespace {
+
+[[nodiscard]] fgep::ouch::Symbol symbol(const char* text) {
+    const auto value = fgep::wire::make_fixed_ascii<8>(text);
+
+    if (value.failed()) {
+        return {};
+    }
+
+    return value.value;
+}
+
+[[nodiscard]] std::filesystem::path timestamped_report_dir(
+    const std::filesystem::path& root
+) {
+    const auto now = std::chrono::system_clock::now();
+    const auto time = std::chrono::system_clock::to_time_t(now);
+
+    std::tm local_time{};
+
+#if defined(_WIN32)
+    localtime_s(&local_time, &time);
+#else
+    localtime_r(&time, &local_time);
+#endif
+
+    std::ostringstream name{};
+    name << std::put_time(&local_time, "%Y-%m-%d_%H%M%S");
+
+    return root / name.str();
+}
+
+void write_text_file(
+    const std::filesystem::path& path,
+    const std::string& text
+) {
+    std::ofstream output{path};
+
+    if (!output) {
+        std::cerr << "failed to open report path: " << path << '\n';
+        return;
+    }
+
+    output << text;
+}
+
+[[nodiscard]] std::string format_guardrail_update_report(
+    const fgep::gate::GuardrailUpdateBenchmarkResult& result
+) {
+    std::string report{};
+
+    report += "# Guardrail Update Benchmark\n\n";
+    report += "Backend: `simulated-control-path`\n\n";
+    report += "These are deterministic simulated update-latency numbers.\n\n";
+
+    report += "## Summary\n\n";
+    report += "| Metric | Value |\n";
+    report += "|---|---:|\n";
+    report += "| update_count | " + std::to_string(result.update_count) + " |\n";
+    report += "| applied_count | " + std::to_string(result.applied_count) + " |\n";
+    report += "| dropped_count | " + std::to_string(result.dropped_count) + " |\n";
+    report += "| simulated_elapsed_ns | "
+        + std::to_string(result.simulated_elapsed_ns) + " |\n";
+
+    report += "\n## Update latency\n\n";
+
+    if (!result.update_latency.has_value()) {
+        report += "No latency samples recorded.\n";
+        return report;
+    }
+
+    const auto& latency = result.update_latency.value();
+
+    report += "| Metric | Value |\n";
+    report += "|---|---:|\n";
+    report += "| count | " + std::to_string(latency.count) + " |\n";
+    report += "| min_ns | " + std::to_string(latency.min_ns) + " |\n";
+    report += "| max_ns | " + std::to_string(latency.max_ns) + " |\n";
+    report += "| mean_ns | " + std::to_string(latency.mean_ns) + " |\n";
+    report += "| p50_ns | " + std::to_string(latency.p50_ns) + " |\n";
+    report += "| p90_ns | " + std::to_string(latency.p90_ns) + " |\n";
+    report += "| p99_ns | " + std::to_string(latency.p99_ns) + " |\n";
+    report += "| p999_ns | " + std::to_string(latency.p999_ns) + " |\n";
+
+    return report;
+}
+
+} // namespace
+
+int main(int argc, char** argv) {
+    const auto report_root = argc >= 2
+        ? std::filesystem::path{argv[1]}
+        : std::filesystem::path{"reports"};
+
+    const auto output_dir = timestamped_report_dir(report_root);
+
+    std::filesystem::create_directories(output_dir);
+
+    const auto execution_result = fgep::bench::run_execution_benchmark(
+        fgep::bench::ExecutionBenchmarkConfig{
+            .candidate_count = 10'000,
+            .generator_config = fgep::bench::OrderCandidateGeneratorConfig{
+                .symbols = {
+                    symbol("AAPL"),
+                    symbol("MSFT"),
+                    symbol("TSLA"),
+                    symbol("NVDA")
+                },
+                .first_user_ref_num = 1,
+                .min_quantity = 100,
+                .max_quantity = 1'000,
+                .base_price = 100'000,
+                .price_step = 25,
+                .hot_symbol_count = 2,
+                .hot_symbol_percent = 80,
+                .alternate_sides = true
+            },
+            .risk_limits = fgep::risk::RiskLimits{
+                .max_order_quantity = 1'000,
+                .max_order_notional = 100'000'000ULL
+            },
+            .stage_durations = {}
+        }
+    );
+
+    write_text_file(
+        output_dir / "execution_benchmark.md",
+        fgep::bench::format_execution_benchmark_markdown(
+            execution_result,
+            fgep::bench::BenchmarkReportMetadata{
+                .title = "Execution Benchmark",
+                .backend_name = "simulated-execution",
+                .notes = "Deterministic synthetic timestamps; not wall-clock performance."
+            }
+        )
+    );
+
+    const auto backend_result = fgep::bench::run_backend_benchmark(
+        fgep::bench::BackendBenchmarkConfig{
+            .technologies = {
+                fgep::execution::BackendTechnology::recording,
+                fgep::execution::BackendTechnology::kernel_udp,
+                fgep::execution::BackendTechnology::afxdp,
+                fgep::execution::BackendTechnology::dpdk
+            },
+            .submission_count = 10'000,
+            .payload_size = 64,
+            .base_submit_latency_ns = 1'000,
+            .latency_jitter_step_ns = 25,
+            .latency_jitter_period = 11,
+            .kernel_udp = fgep::execution::KernelUdpBackendConfig{
+                .destination_ipv4 = "127.0.0.1",
+                .destination_port = 49'999
+            },
+            .afxdp = fgep::execution::AfXdpBackendConfig{
+                .interface_name = "eth0",
+                .queue_id = 0,
+                .umem_frame_count = 4096,
+                .umem_frame_size = 2048,
+                .tx_batch_size = 64
+            },
+            .dpdk = fgep::execution::DpdkBackendConfig{}
+        }
+    );
+
+    write_text_file(
+        output_dir / "backend_benchmark.md",
+        fgep::bench::format_backend_benchmark_markdown(
+            backend_result,
+            fgep::bench::BenchmarkReportMetadata{
+                .title = "Backend Comparison Benchmark",
+                .backend_name = "recording/kernel_udp/afxdp/dpdk",
+                .notes = "Deterministic submit-latency model. Kernel UDP performs real sendto(); AF_XDP/DPDK may be unsupported unless implemented and available."
+            }
+        )
+    );
+
+    const auto guardrail_result =
+        fgep::gate::run_guardrail_update_benchmark(
+            fgep::gate::GuardrailUpdateBenchmarkConfig{
+                .update_count = 10'000,
+                .base_update_latency_ns = 1'000,
+                .latency_jitter_step_ns = 25,
+                .latency_jitter_period = 7
+            }
+        );
+
+    write_text_file(
+        output_dir / "guardrail_update_benchmark.md",
+        format_guardrail_update_report(guardrail_result)
+    );
+
+    std::cout << "wrote benchmark reports to: "
+              << output_dir.string()
+              << '\n';
+
+    return 0;
+}

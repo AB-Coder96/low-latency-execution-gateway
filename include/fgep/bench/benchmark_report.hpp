@@ -1,7 +1,7 @@
 #pragma once
 
 #include "fgep/bench/execution_benchmark.hpp"
-
+#include "fgep/bench/backend_benchmark.hpp"
 #include <string>
 #include <string_view>
 
@@ -31,4 +31,8 @@ struct BenchmarkReportMetadata {
     std::string_view needle
 ) noexcept;
 
+[[nodiscard]] std::string format_backend_benchmark_markdown(
+    const BackendBenchmarkResult& result,
+    const BenchmarkReportMetadata& metadata = {}
+);
 } // namespace fgep::bench

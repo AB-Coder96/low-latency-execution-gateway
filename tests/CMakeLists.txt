@@ -268,3 +268,7 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_backend_benchmark.cpp")
     fgep_add_test(test_backend_benchmark test_backend_benchmark.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_system_metadata.cpp")
+    fgep_add_test(test_system_metadata test_system_metadata.cpp)
+endif()

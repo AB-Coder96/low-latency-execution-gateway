@@ -61,6 +61,24 @@ if(PkgConfig_FOUND)
 endif()
 
 set(FGEP_HAVE_AFXDP OFF)
+
+set(FGEP_GIT_COMMIT "unknown")
+
+find_package(Git QUIET)
+
+if(Git_FOUND)
+    execute_process(
+        COMMAND ${GIT_EXECUTABLE} rev-parse --short=12 HEAD
+        WORKING_DIRECTORY ${PROJECT_SOURCE_DIR}
+        OUTPUT_VARIABLE FGEP_GIT_COMMIT
+        OUTPUT_STRIP_TRAILING_WHITESPACE
+        ERROR_QUIET
+    )
+endif()
+
+if(FGEP_GIT_COMMIT STREQUAL "")
+    set(FGEP_GIT_COMMIT "unknown")
+endif()
 # ---------------------------------------------------------------------------
 # Main library target
 # ---------------------------------------------------------------------------
@@ -108,6 +126,7 @@ add_library(
         src/gate/guardrail_control.cpp
         src/gate/guardrail_update_benchmark.cpp
         src/bench/backend_benchmark.cpp
+        src/bench/system_metadata.cpp
 )
 
 target_include_directories(
@@ -126,6 +145,8 @@ target_compile_definitions(
     fgep
     PUBLIC
         FGEP_DEFAULT_EXEC_BACKEND="${FGEP_EXEC_BACKEND}"
+        FGEP_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
+        FGEP_GIT_COMMIT="${FGEP_GIT_COMMIT}"
 )
 
 if(FGEP_ENABLE_AFXDP)
@@ -182,3 +203,4 @@ message(STATUS "Build apps: ${FGEP_BUILD_APPS}")
 message(STATUS "Build benchmarks: ${FGEP_BUILD_BENCHMARKS}")
 message(STATUS "Enable AF_XDP: ${FGEP_ENABLE_AFXDP}")
 message(STATUS "Have DPDK: ${FGEP_HAVE_DPDK}")
+message(STATUS "Git commit: ${FGEP_GIT_COMMIT}")
