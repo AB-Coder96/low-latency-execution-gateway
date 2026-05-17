@@ -61,6 +61,7 @@ add_library(
         src/bench/order_candidate_generator.cpp
         src/bench/execution_benchmark.cpp
         src/bench/benchmark_report.cpp
+        src/reference/symbol_fixture.cpp
 )
 
 target_include_directories(

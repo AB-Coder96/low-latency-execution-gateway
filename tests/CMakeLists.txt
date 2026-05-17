@@ -210,3 +210,7 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_benchmark_report.cpp")
     fgep_add_test(test_benchmark_report test_benchmark_report.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_symbol_fixture.cpp")
+    fgep_add_test(test_symbol_fixture test_symbol_fixture.cpp)
+endif()
