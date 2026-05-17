@@ -59,6 +59,7 @@ add_library(
         src/telemetry/pipeline_telemetry.cpp
         src/telemetry/latency_summary.cpp
         src/bench/order_candidate_generator.cpp
+        src/bench/execution_benchmark.cpp
 )
 
 target_include_directories(

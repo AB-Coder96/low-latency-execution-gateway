@@ -202,3 +202,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_order_candidate_generator.cpp")
         test_order_candidate_generator.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_execution_benchmark.cpp")
+    fgep_add_test(test_execution_benchmark test_execution_benchmark.cpp)
+endif()
