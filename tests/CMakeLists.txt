@@ -253,3 +253,14 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_zero_leak_halt.cpp")
     fgep_add_test(test_zero_leak_halt test_zero_leak_halt.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_guardrail_control.cpp")
+    fgep_add_test(test_guardrail_control test_guardrail_control.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_guardrail_update_benchmark.cpp")
+    fgep_add_test(
+        test_guardrail_update_benchmark
+        test_guardrail_update_benchmark.cpp
+    )
+endif()

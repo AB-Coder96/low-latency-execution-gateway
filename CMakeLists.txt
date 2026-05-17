@@ -105,6 +105,8 @@ add_library(
         src/execution/backend_factory.cpp
         src/gate/guardrail_state.cpp
         src/gate/permissive_gate.cpp
+        src/gate/guardrail_control.cpp
+        src/gate/guardrail_update_benchmark.cpp
 )
 
 target_include_directories(
