@@ -65,6 +65,7 @@ add_library(
         src/reference/venue_fixture.cpp
         src/execution/execution_backend.cpp
         src/execution/encoded_backend_submit.cpp
+        src/execution/kernel_udp_backend.cpp
 )
 
 target_include_directories(
