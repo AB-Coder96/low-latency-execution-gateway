@@ -264,3 +264,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_guardrail_update_benchmark.cpp")
         test_guardrail_update_benchmark.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_backend_benchmark.cpp")
+    fgep_add_test(test_backend_benchmark test_backend_benchmark.cpp)
+endif()
