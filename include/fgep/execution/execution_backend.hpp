@@ -27,7 +27,8 @@ enum class BackendRejectReason : std::uint8_t {
     capacity_exceeded,
     invalid_endpoint,
     socket_error,
-    send_failed
+    send_failed,
+    unsupported_backend
 };
 
 struct BackendSubmitRequest {

@@ -8,6 +8,7 @@ project(
 )
 
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
 # Global C++ settings
 # ---------------------------------------------------------------------------
 
@@ -27,6 +28,39 @@ option(FGEP_BUILD_APPS "Build demo applications" ON)
 option(FGEP_BUILD_BENCHMARKS "Build benchmark executables" OFF)
 option(FGEP_ENABLE_WARNINGS "Enable strict compiler warnings" ON)
 
+set(
+    FGEP_EXEC_BACKEND
+    "kernel_udp"
+    CACHE STRING
+    "Default execution backend: recording, kernel_udp, afxdp, dpdk"
+)
+
+set_property(
+    CACHE FGEP_EXEC_BACKEND
+    PROPERTY STRINGS
+        recording
+        kernel_udp
+        afxdp
+        dpdk
+)
+
+# ---------------------------------------------------------------------------
+# Optional backend dependency detection
+# ---------------------------------------------------------------------------
+
+set(FGEP_HAVE_DPDK OFF)
+
+find_package(PkgConfig QUIET)
+
+if(PkgConfig_FOUND)
+    pkg_check_modules(DPDK QUIET IMPORTED_TARGET libdpdk)
+
+    if(DPDK_FOUND)
+        set(FGEP_HAVE_DPDK ON)
+    endif()
+endif()
+
+set(FGEP_HAVE_AFXDP OFF)
 # ---------------------------------------------------------------------------
 # Main library target
 # ---------------------------------------------------------------------------
@@ -66,6 +100,9 @@ add_library(
         src/execution/execution_backend.cpp
         src/execution/encoded_backend_submit.cpp
         src/execution/kernel_udp_backend.cpp
+        src/execution/afxdp_backend.cpp
+        src/execution/dpdk_backend.cpp
+        src/execution/backend_factory.cpp
 )
 
 target_include_directories(
@@ -80,7 +117,17 @@ target_compile_features(
         cxx_std_20
 )
 
+target_compile_definitions(
+    fgep
+    PUBLIC
+        FGEP_DEFAULT_EXEC_BACKEND="${FGEP_EXEC_BACKEND}"
+)
 
+if(FGEP_ENABLE_AFXDP)
+    target_compile_definitions(fgep PUBLIC FGEP_ENABLE_AFXDP=1)
+else()
+    target_compile_definitions(fgep PUBLIC FGEP_ENABLE_AFXDP=0)
+endif()
 
 if(FGEP_ENABLE_WARNINGS)
     if(MSVC)
@@ -128,4 +175,5 @@ message(STATUS "C++ standard: C++${CMAKE_CXX_STANDARD}")
 message(STATUS "Build tests: ${FGEP_BUILD_TESTS}")
 message(STATUS "Build apps: ${FGEP_BUILD_APPS}")
 message(STATUS "Build benchmarks: ${FGEP_BUILD_BENCHMARKS}")
-
+message(STATUS "Enable AF_XDP: ${FGEP_ENABLE_AFXDP}")
+message(STATUS "Have DPDK: ${FGEP_HAVE_DPDK}")

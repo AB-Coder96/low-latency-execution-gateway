@@ -229,3 +229,15 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_kernel_udp_backend.cpp")
     fgep_add_test(test_kernel_udp_backend test_kernel_udp_backend.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_afxdp_backend.cpp")
+    fgep_add_test(test_afxdp_backend test_afxdp_backend.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_dpdk_backend.cpp")
+    fgep_add_test(test_dpdk_backend test_dpdk_backend.cpp)
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_backend_factory.cpp")
+    fgep_add_test(test_backend_factory test_backend_factory.cpp)
+endif()
