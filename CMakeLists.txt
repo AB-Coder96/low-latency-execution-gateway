@@ -103,6 +103,7 @@ add_library(
         src/execution/afxdp_backend.cpp
         src/execution/dpdk_backend.cpp
         src/execution/backend_factory.cpp
+        src/gate/guardrail_state.cpp
 )
 
 target_include_directories(
