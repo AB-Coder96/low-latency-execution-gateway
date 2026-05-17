@@ -218,3 +218,6 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_venue_fixture.cpp")
     fgep_add_test(test_venue_fixture test_venue_fixture.cpp)
 endif()
 
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_execution_backend.cpp")
+    fgep_add_test(test_execution_backend test_execution_backend.cpp)
+endif()
