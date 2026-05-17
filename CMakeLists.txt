@@ -62,6 +62,7 @@ add_library(
         src/bench/execution_benchmark.cpp
         src/bench/benchmark_report.cpp
         src/reference/symbol_fixture.cpp
+        src/reference/venue_fixture.cpp
 )
 
 target_include_directories(
