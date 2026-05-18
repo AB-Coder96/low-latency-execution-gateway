@@ -127,6 +127,7 @@ add_library(
         src/gate/guardrail_update_benchmark.cpp
         src/bench/backend_benchmark.cpp
         src/bench/system_metadata.cpp
+         src/bench/wall_clock_backend_benchmark.cpp
 )
 
 target_include_directories(
