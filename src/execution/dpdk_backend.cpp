@@ -79,6 +79,23 @@ void write_ethernet_header(
     header->ether_type = rte_cpu_to_be_16(config.ether_type);
 }
 
+
+[[nodiscard]] unsigned int socket_id_for_port(
+    std::uint16_t port_id
+) noexcept {
+    const auto socket_id = rte_eth_dev_socket_id(port_id);
+
+    if (socket_id < 0) {
+        return rte_socket_id();
+    }
+
+    return static_cast<unsigned int>(socket_id);
+}
+
+[[nodiscard]] int current_socket_id() noexcept {
+    return static_cast<int>(rte_socket_id());
+}
+
 [[nodiscard]] bool configure_port(
     const DpdkBackendConfig& config,
     rte_mempool* pool
@@ -101,7 +118,7 @@ void write_ethernet_header(
         config.port_id,
         config.queue_id,
         config.tx_desc_count,
-        rte_eth_dev_socket_id(config.port_id),
+        socket_id_for_port(config.port_id),
         nullptr
     );
 
@@ -213,14 +230,17 @@ BackendSubmitResult DpdkExecutionBackend::submit(
     }
 
     const auto frame_size = ethernet_frame_size(request.payload.size());
-    auto* frame = static_cast<std::byte*>(
-        rte_pktmbuf_append(mbuf, static_cast<std::uint16_t>(frame_size))
+    auto* raw_frame = rte_pktmbuf_append(
+        mbuf,
+        static_cast<std::uint16_t>(frame_size)
     );
 
-    if (frame == nullptr) {
+    if (raw_frame == nullptr) {
         rte_pktmbuf_free(mbuf);
         return reject(request, BackendRejectReason::send_failed);
     }
+
+    auto* frame = reinterpret_cast<std::byte*>(raw_frame);
 
     write_ethernet_header(mbuf, config_);
 
@@ -319,14 +339,14 @@ void DpdkExecutionBackend::initialize() noexcept {
         return;
     }
 
-    auto* pool = rte_pktmbuf_pool_create(
-        "fgep_dpdk_mbuf_pool",
-        static_cast<unsigned int>(config_.mbuf_pool_size),
-        config_.mbuf_cache_size,
-        0,
-        RTE_MBUF_DEFAULT_BUF_SIZE,
-        rte_socket_id()
-    );
+auto* pool = rte_pktmbuf_pool_create(
+    "fgep_dpdk_mbuf_pool",
+    static_cast<unsigned int>(config_.mbuf_pool_size),
+    config_.mbuf_cache_size,
+    0,
+    RTE_MBUF_DEFAULT_BUF_SIZE,
+    current_socket_id()
+);
 
     if (pool == nullptr) {
         open_ = false;

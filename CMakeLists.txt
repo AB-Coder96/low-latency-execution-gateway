@@ -150,6 +150,14 @@ target_compile_definitions(
         FGEP_GIT_COMMIT="${FGEP_GIT_COMMIT}"
 )
 
+
+if(FGEP_HAVE_DPDK)
+    target_compile_definitions(fgep PUBLIC FGEP_HAVE_DPDK=1)
+    target_link_libraries(fgep PUBLIC PkgConfig::DPDK)
+else()
+    target_compile_definitions(fgep PUBLIC FGEP_HAVE_DPDK=0)
+endif()
+
 if(FGEP_ENABLE_AFXDP)
     target_compile_definitions(fgep PUBLIC FGEP_ENABLE_AFXDP=1)
 else()

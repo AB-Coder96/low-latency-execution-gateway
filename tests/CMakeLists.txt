@@ -290,3 +290,14 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_backend_submit_queue.cpp")
     fgep_add_test(test_backend_submit_queue test_backend_submit_queue.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_queued_execution_backend.cpp")
+    fgep_add_test(
+        test_queued_execution_backend
+        test_queued_execution_backend.cpp
+    )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_core_stats.cpp")
+    fgep_add_test(test_core_stats test_core_stats.cpp)
+endif()
