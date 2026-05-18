@@ -2,6 +2,7 @@
 
 #include "fgep/core/spsc_ring.hpp"
 #include "fgep/execution/execution_backend.hpp"
+#include "fgep/telemetry/core_stats.hpp"
 
 #include <algorithm>
 #include <array>
@@ -12,92 +13,98 @@
 
 namespace fgep::execution {
 
-inline constexpr std::size_t default_backend_submit_payload_bytes = 256U;
+inline constexpr std::size_t max_backend_submit_payload_size = 256U;
 
-template <std::size_t MaxPayloadBytes>
-struct QueuedBackendSubmit {
-    static_assert(MaxPayloadBytes > 0U, "MaxPayloadBytes must be non-zero");
+enum class BackendSubmitQueuePushStatus : std::uint8_t {
+    queued,
+    empty_payload,
+    payload_too_large,
+    queue_full
+};
+
+struct BackendSubmitQueuePushResult {
+    BackendSubmitQueuePushStatus status{
+        BackendSubmitQueuePushStatus::queue_full
+    };
+
+    [[nodiscard]] constexpr bool queued() const noexcept {
+        return status == BackendSubmitQueuePushStatus::queued;
+    }
+};
+
+template <std::size_t MaxPayloadSize = max_backend_submit_payload_size>
+struct BackendSubmitQueueItem {
+    static_assert(MaxPayloadSize > 0U, "MaxPayloadSize must be positive");
     static_assert(
-        MaxPayloadBytes <= std::numeric_limits<std::uint16_t>::max(),
-        "QueuedBackendSubmit stores payload size as uint16_t"
+        MaxPayloadSize <= static_cast<std::size_t>(
+            std::numeric_limits<std::uint16_t>::max()
+        ),
+        "MaxPayloadSize must fit in uint16_t"
     );
 
     ouch::UserRefNum user_ref_num{};
     BackendOrderKind kind{BackendOrderKind::enter};
     std::uint16_t payload_size{};
-    std::array<std::byte, MaxPayloadBytes> payload{};
+    std::array<std::byte, MaxPayloadSize> payload{};
 
-    [[nodiscard]] std::span<const std::byte> payload_view() const noexcept {
-        return {payload.data(), static_cast<std::size_t>(payload_size)};
+    [[nodiscard]] std::span<const std::byte> payload_span() const noexcept {
+        return std::span<const std::byte>{
+            payload.data(),
+            static_cast<std::size_t>(payload_size)
+        };
     }
 
-    [[nodiscard]] BackendSubmitRequest as_request() const noexcept {
+    [[nodiscard]] BackendSubmitRequest request() const noexcept {
         return BackendSubmitRequest{
             .user_ref_num = user_ref_num,
             .kind = kind,
-            .payload = payload_view()
+            .payload = payload_span()
         };
     }
 };
 
 template <
-    std::size_t QueueCapacity,
-    std::size_t MaxPayloadBytes = default_backend_submit_payload_bytes
+    std::size_t Capacity,
+    std::size_t MaxPayloadSize = max_backend_submit_payload_size
 >
 class BackendSubmitQueue {
 public:
-    using Entry = QueuedBackendSubmit<MaxPayloadBytes>;
+    using Item = BackendSubmitQueueItem<MaxPayloadSize>;
 
-    BackendSubmitQueue() = default;
-
-    BackendSubmitQueue(const BackendSubmitQueue&) = delete;
-    BackendSubmitQueue& operator=(const BackendSubmitQueue&) = delete;
-
-    BackendSubmitQueue(BackendSubmitQueue&&) = delete;
-    BackendSubmitQueue& operator=(BackendSubmitQueue&&) = delete;
-
-    [[nodiscard]] BackendSubmitResult try_push(
-        const BackendSubmitRequest& request
-    ) noexcept {
-        if (request.payload.empty()) {
-            return make_backend_reject(
-                request,
-                BackendRejectReason::empty_payload
-            );
-        }
-
-        if (request.payload.size() > MaxPayloadBytes) {
-            return make_backend_reject(
-                request,
-                BackendRejectReason::capacity_exceeded
-            );
-        }
-
-        Entry entry{
-            .user_ref_num = request.user_ref_num,
-            .kind = request.kind,
-            .payload_size = static_cast<std::uint16_t>(request.payload.size()),
-            .payload = {}
-        };
-
-        std::copy(
-            request.payload.begin(),
-            request.payload.end(),
-            entry.payload.begin()
-        );
-
-        if (!ring_.push(entry)) {
-            return make_backend_reject(
-                request,
-                BackendRejectReason::capacity_exceeded
-            );
-        }
-
-        return make_backend_accept(request);
+    void set_stats(::fgep::CoreStats* stats) noexcept {
+        stats_ = stats;
     }
 
-    [[nodiscard]] bool try_pop(Entry& out) noexcept {
-        return ring_.pop(out);
+    [[nodiscard]] BackendSubmitQueuePushResult push(
+        const BackendSubmitRequest& request
+    ) noexcept {
+        Item item{};
+
+        const auto status = make_item(request, item);
+
+        if (status != BackendSubmitQueuePushStatus::queued) {
+            record_rejected();
+            return BackendSubmitQueuePushResult{.status = status};
+        }
+
+        if (!ring_.push(item)) {
+            record_ring_full();
+            record_rejected();
+
+            return BackendSubmitQueuePushResult{
+                .status = BackendSubmitQueuePushStatus::queue_full
+            };
+        }
+
+        record_queued();
+
+        return BackendSubmitQueuePushResult{
+            .status = BackendSubmitQueuePushStatus::queued
+        };
+    }
+
+    [[nodiscard]] bool pop(Item& item) noexcept {
+        return ring_.pop(item);
     }
 
     [[nodiscard]] bool empty() const noexcept {
@@ -109,15 +116,63 @@ public:
     }
 
     [[nodiscard]] static constexpr std::size_t capacity() noexcept {
-        return QueueCapacity;
+        return Capacity;
     }
 
-    [[nodiscard]] static constexpr std::size_t max_payload_bytes() noexcept {
-        return MaxPayloadBytes;
+    [[nodiscard]] static constexpr std::size_t max_payload_size() noexcept {
+        return MaxPayloadSize;
     }
 
 private:
-    SpscRing<Entry, QueueCapacity> ring_{};
+    void record_queued() noexcept {
+        if (stats_ != nullptr) {
+            stats_->increment(::fgep::CoreCounter::submit_queued);
+        }
+    }
+
+    void record_rejected() noexcept {
+        if (stats_ != nullptr) {
+            stats_->increment(::fgep::CoreCounter::submit_rejected);
+        }
+    }
+
+    void record_ring_full() noexcept {
+        if (stats_ != nullptr) {
+            stats_->increment(::fgep::CoreCounter::ring_full);
+        }
+    }
+
+    [[nodiscard]] static BackendSubmitQueuePushStatus make_item(
+        const BackendSubmitRequest& request,
+        Item& item
+    ) noexcept {
+        if (request.payload.empty()) {
+            return BackendSubmitQueuePushStatus::empty_payload;
+        }
+
+        if (request.payload.size() > MaxPayloadSize) {
+            return BackendSubmitQueuePushStatus::payload_too_large;
+        }
+
+        item.user_ref_num = request.user_ref_num;
+        item.kind = request.kind;
+        item.payload_size = static_cast<std::uint16_t>(
+            request.payload.size()
+        );
+
+        std::copy(
+            request.payload.begin(),
+            request.payload.end(),
+            item.payload.begin()
+        );
+
+        return BackendSubmitQueuePushStatus::queued;
+    }
+
+    ::fgep::SpscRing<Item, Capacity> ring_{};
+    ::fgep::CoreStats* stats_{nullptr};
 };
+
+static_assert(alignof(BackendSubmitQueue<1024U>) == ::fgep::cache_line_size);
 
 } // namespace fgep::execution
