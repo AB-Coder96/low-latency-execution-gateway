@@ -124,7 +124,7 @@ ExecutionBenchmarkResult run_execution_benchmark(
             config.stage_durations
         );
 
-        latency_recorder.record_end_to_end(event);
+        static_cast<void>(latency_recorder.record_end_to_end(event));
     }
 
     result.live_order_count = engine.live_order_count();
