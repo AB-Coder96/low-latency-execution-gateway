@@ -4,6 +4,7 @@
 #include "fgep/gate/guardrail_update_benchmark.hpp"
 #include "fgep/wire/fixed_ascii.hpp"
 #include "fgep/bench/system_metadata.hpp"
+#include "fgep/bench/wall_clock_backend_benchmark.hpp"
 
 #include <chrono>
 #include <ctime>
@@ -198,6 +199,48 @@ write_text_file(
         + "\n"
         + system_metadata_report
 );
+
+const auto wall_clock_backend_result =
+    fgep::bench::run_wall_clock_backend_benchmark(
+        fgep::bench::WallClockBackendBenchmarkConfig{
+            .technologies = {
+                fgep::execution::BackendTechnology::recording,
+                fgep::execution::BackendTechnology::kernel_udp,
+                fgep::execution::BackendTechnology::afxdp,
+                fgep::execution::BackendTechnology::dpdk
+            },
+            .submission_count = 100'000,
+            .payload_size = 64,
+            .record_per_submit_latency = true,
+            .kernel_udp = fgep::execution::KernelUdpBackendConfig{
+                .destination_ipv4 = "127.0.0.1",
+                .destination_port = 49'999
+            },
+            .afxdp = fgep::execution::AfXdpBackendConfig{
+                .interface_name = "enp39s0",
+                .queue_id = 0,
+                .umem_frame_count = 4096,
+                .umem_frame_size = 2048,
+                .tx_batch_size = 64
+            },
+            .dpdk = fgep::execution::DpdkBackendConfig{}
+        }
+    );
+
+write_text_file(
+    output_dir / "wall_clock_backend_benchmark.md",
+    fgep::bench::format_wall_clock_backend_benchmark_markdown(
+        wall_clock_backend_result,
+        fgep::bench::BenchmarkReportMetadata{
+            .title = "Wall Clock Backend Benchmark",
+            .backend_name = "recording/kernel_udp/afxdp/dpdk",
+            .notes = "Measured with std::chrono::steady_clock on the host. Kernel UDP performs real sendto(); AF_XDP/DPDK may reject if unsupported or unavailable."
+        }
+    )
+        + "\n"
+        + system_metadata_report
+);
+
 
     const auto guardrail_result =
         fgep::gate::run_guardrail_update_benchmark(
