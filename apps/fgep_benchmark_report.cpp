@@ -3,6 +3,7 @@
 #include "fgep/bench/execution_benchmark.hpp"
 #include "fgep/gate/guardrail_update_benchmark.hpp"
 #include "fgep/wire/fixed_ascii.hpp"
+#include "fgep/bench/system_metadata.hpp"
 
 #include <chrono>
 #include <ctime>
@@ -111,6 +112,10 @@ int main(int argc, char** argv) {
 
     std::filesystem::create_directories(output_dir);
 
+    const auto system_metadata = fgep::bench::collect_system_metadata();
+    const auto system_metadata_report =
+        fgep::bench::format_system_metadata_markdown(system_metadata);
+
     const auto execution_result = fgep::bench::run_execution_benchmark(
         fgep::bench::ExecutionBenchmarkConfig{
             .candidate_count = 10'000,
@@ -148,6 +153,8 @@ int main(int argc, char** argv) {
                 .notes = "Deterministic synthetic timestamps; not wall-clock performance."
             }
         )
+            + "\n"
+            + system_metadata_report
     );
 
     const auto backend_result = fgep::bench::run_backend_benchmark(
@@ -178,17 +185,19 @@ int main(int argc, char** argv) {
         }
     );
 
-    write_text_file(
-        output_dir / "backend_benchmark.md",
-        fgep::bench::format_backend_benchmark_markdown(
-            backend_result,
-            fgep::bench::BenchmarkReportMetadata{
-                .title = "Backend Comparison Benchmark",
-                .backend_name = "recording/kernel_udp/afxdp/dpdk",
-                .notes = "Deterministic submit-latency model. Kernel UDP performs real sendto(); AF_XDP/DPDK may be unsupported unless implemented and available."
-            }
-        )
-    );
+write_text_file(
+    output_dir / "backend_benchmark.md",
+    fgep::bench::format_backend_benchmark_markdown(
+        backend_result,
+        fgep::bench::BenchmarkReportMetadata{
+            .title = "Backend Comparison Benchmark",
+            .backend_name = "recording/kernel_udp/afxdp/dpdk",
+            .notes = "Deterministic submit-latency model. Kernel UDP performs real sendto(); AF_XDP/DPDK may be unsupported unless implemented and available."
+        }
+    )
+        + "\n"
+        + system_metadata_report
+);
 
     const auto guardrail_result =
         fgep::gate::run_guardrail_update_benchmark(
@@ -201,9 +210,11 @@ int main(int argc, char** argv) {
         );
 
     write_text_file(
-        output_dir / "guardrail_update_benchmark.md",
-        format_guardrail_update_report(guardrail_result)
-    );
+    output_dir / "guardrail_update_benchmark.md",
+    format_guardrail_update_report(guardrail_result)
+        + "\n"
+        + system_metadata_report
+);
 
     std::cout << "wrote benchmark reports to: "
               << output_dir.string()
