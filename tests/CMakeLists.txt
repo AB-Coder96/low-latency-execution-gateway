@@ -279,3 +279,14 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_wall_clock_backend_benchmark.cpp")
         test_wall_clock_backend_benchmark.cpp
     )
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_spsc_ring.cpp")
+    fgep_add_test(
+        test_spsc_ring
+       test_spsc_ring.cpp
+    )
+endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_backend_submit_queue.cpp")
+    fgep_add_test(test_backend_submit_queue test_backend_submit_queue.cpp)
+endif()
