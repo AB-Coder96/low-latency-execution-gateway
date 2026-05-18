@@ -149,5 +149,79 @@ int main() {
     assert(contains_text(report, "# Empty Backend Comparison"));
     assert(contains_text(report, "| n/a | 0 | 0 | 0 | 0 ns | 0 candidates/s | n/a | n/a | n/a |"));
 }
-    return 0;
+{
+    WallClockBackendBenchmarkResult result{
+        .technologies = {
+            WallClockBackendTechnologyResult{
+                .technology = fgep::execution::BackendTechnology::recording,
+                .submission_count = 100,
+                .accepted_count = 100,
+                .rejected_count = 0,
+                .elapsed_ns = 50'000,
+                .submissions_per_second = 2'000'000,
+                .submit_latency = fgep::telemetry::LatencySummary{
+                    .count = 100,
+                    .min_ns = 100,
+                    .max_ns = 500,
+                    .mean_ns = 250,
+                    .p50_ns = 200,
+                    .p90_ns = 400,
+                    .p99_ns = 500,
+                    .p999_ns = 500
+                }
+            },
+            WallClockBackendTechnologyResult{
+                .technology = fgep::execution::BackendTechnology::kernel_udp,
+                .submission_count = 100,
+                .accepted_count = 100,
+                .rejected_count = 0,
+                .elapsed_ns = 100'000,
+                .submissions_per_second = 1'000'000,
+                .submit_latency = fgep::telemetry::LatencySummary{
+                    .count = 100,
+                    .min_ns = 200,
+                    .max_ns = 900,
+                    .mean_ns = 450,
+                    .p50_ns = 400,
+                    .p90_ns = 800,
+                    .p99_ns = 900,
+                    .p999_ns = 900
+                }
+            }
+        }
+    };
+
+    const auto report = format_wall_clock_backend_benchmark_markdown(
+        result,
+        BenchmarkReportMetadata{
+            .title = "Wall Clock Backend Benchmark",
+            .backend_name = "wall-clock",
+            .notes = "Measured with std::chrono::steady_clock."
+        }
+    );
+
+    assert(contains_text(report, "# Wall Clock Backend Benchmark"));
+    assert(contains_text(report, "Backend: `wall-clock`"));
+    assert(contains_text(report, "Measured with std::chrono::steady_clock."));
+    assert(contains_text(report, "## Wall-clock backend comparison"));
+    assert(contains_text(report, "| recording | 100 | 100 | 0 | 50000 ns | 2000000 candidates/s | 200 | 500 | 500 |"));
+    assert(contains_text(report, "| kernel_udp | 100 | 100 | 0 | 100000 ns | 1000000 candidates/s | 400 | 900 | 900 |"));
+}
+
+{
+    WallClockBackendBenchmarkResult result{};
+
+    const auto report = format_wall_clock_backend_benchmark_markdown(
+        result,
+        BenchmarkReportMetadata{
+            .title = "Empty Wall Clock Backend Benchmark",
+            .backend_name = "none",
+            .notes = {}
+        }
+    );
+
+    assert(contains_text(report, "# Empty Wall Clock Backend Benchmark"));
+    assert(contains_text(report, "| n/a | 0 | 0 | 0 | 0 ns | 0 candidates/s | n/a | n/a | n/a |"));
+}    
+return 0;
 }

@@ -2,6 +2,7 @@
 
 #include "fgep/bench/execution_benchmark.hpp"
 #include "fgep/bench/backend_benchmark.hpp"
+#include "fgep/bench/wall_clock_backend_benchmark.hpp"
 #include <string>
 #include <string_view>
 
@@ -25,6 +26,12 @@ struct BenchmarkReportMetadata {
     const ExecutionBenchmarkResult& result,
     const BenchmarkReportMetadata& metadata = {}
 );
+
+[[nodiscard]] std::string format_wall_clock_backend_benchmark_markdown(
+    const WallClockBackendBenchmarkResult& result,
+    const BenchmarkReportMetadata& metadata = {}
+);
+
 
 [[nodiscard]] bool contains_text(
     std::string_view text,

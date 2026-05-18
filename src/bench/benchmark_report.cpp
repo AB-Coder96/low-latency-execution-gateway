@@ -130,6 +130,67 @@ std::string format_backend_benchmark_markdown(
     return output.str();
 }
 
+void append_wall_clock_backend_technology_row(
+    std::ostringstream& output,
+    const WallClockBackendTechnologyResult& result
+) {
+    output << "| "
+           << execution::backend_technology_name(result.technology)
+           << " | "
+           << result.submission_count
+           << " | "
+           << result.accepted_count
+           << " | "
+           << result.rejected_count
+           << " | "
+           << format_duration_ns(result.elapsed_ns)
+           << " | "
+           << format_rate_per_second(result.submissions_per_second)
+           << " | ";
+
+    if (result.submit_latency.has_value()) {
+        output << result.submit_latency->p50_ns
+               << " | "
+               << result.submit_latency->p99_ns
+               << " | "
+               << result.submit_latency->p999_ns
+               << " |\n";
+    } else {
+        output << "n/a | n/a | n/a |\n";
+    }
+}
+
+
+std::string format_wall_clock_backend_benchmark_markdown(
+    const WallClockBackendBenchmarkResult& result,
+    const BenchmarkReportMetadata& metadata
+) {
+    std::ostringstream output{};
+
+    output << "# " << metadata.title << "\n\n";
+    output << "Backend: `" << metadata.backend_name << "`\n\n";
+
+    if (!metadata.notes.empty()) {
+        output << metadata.notes << "\n\n";
+    }
+
+    output << "## Wall-clock backend comparison\n\n";
+    output << "| Technology | Submissions | Accepted | Rejected | "
+           << "Elapsed | Throughput | p50_ns | p99_ns | p999_ns |\n";
+    output << "|---|---:|---:|---:|---:|---:|---:|---:|---:|\n";
+
+    for (const auto& technology_result : result.technologies) {
+        append_wall_clock_backend_technology_row(output, technology_result);
+    }
+
+    if (result.technologies.empty()) {
+        output << "| n/a | 0 | 0 | 0 | 0 ns | 0 candidates/s | "
+               << "n/a | n/a | n/a |\n";
+    }
+
+    return output.str();
+}
+
 bool contains_text(
     std::string_view text,
     std::string_view needle
