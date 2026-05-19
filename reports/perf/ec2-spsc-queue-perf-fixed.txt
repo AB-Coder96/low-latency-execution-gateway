@@ -1,0 +1,38 @@
+# perf stat capture
+# date_utc: 2026-05-19T06:08:33Z
+# host: ip-172-31-72-198
+# kernel: Linux ip-172-31-72-198 7.0.0-1004-aws #4-Ubuntu SMP PREEMPT Mon Apr 13 13:14:24 UTC 2026 x86_64 GNU/Linux
+# events: cycles,instructions,branches,branch-misses,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,dTLB-loads,dTLB-load-misses
+# seconds: 10
+# warmup_seconds: 2
+# cpu_list: all/process-default
+
+# mode: command
+# command: ./build/debug/apps/fgep_spsc_queue_perf --payload-size 64
+
+
+ Performance counter stats for process id '70426':
+
+       57182374958      cycles                                                                  (80.19%)
+      125823531748      instructions                                                            (90.11%)
+       17303328018      branches                                                                (89.88%)
+          41691088      branch-misses                                                           (90.00%)
+                 0      cache-references                                                        (89.98%)
+                 0      cache-misses                                                            (90.01%)
+       43042118288      L1-dcache-loads                                                         (90.01%)
+           6919611      L1-dcache-load-misses                                                   (90.01%)
+       43014182471      dTLB-loads                                                              (90.00%)
+            141725      dTLB-load-misses                                                        (90.00%)
+
+      10.008459276 seconds time elapsed
+
+
+# app output
+spsc_queue_perf_complete
+payload_size=64
+produced=111716534
+consumed=111716534
+checksum=111716535
+submit_queued=111716534
+submit_rejected=80738
+ring_full=80738
