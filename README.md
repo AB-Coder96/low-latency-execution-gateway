@@ -10,26 +10,26 @@ The project demonstrates systems engineering across binary protocols, execution-
 
 | Area | Implemented |
 |---|---|
-| C++20 / CMake / Ninja build | Yes |
-| ITCH / OUCH / MoldUDP64 codecs | Yes |
-| Market-data replay pipeline | Yes |
-| Venue-local books and normalized BBO | Yes |
-| Risk supervisor and order lifecycle simulation | Yes |
-| Software guardrail and permissive gate | Yes |
-| Kernel UDP execution backend | Yes |
-| DPDK-capable execution backend | Yes |
-| AWS EC2 ENA PMD validation | Yes |
-| Hugepage setup on EC2 | Yes |
-| Secondary ENI DPDK binding workflow | Yes |
-| NUMA-aware DPDK mbuf setup | Yes |
-| Cache-aligned SPSC ring | Yes |
-| Acquire/release SPSC stress tests | Yes |
-| SPSC backend-submit queue | Yes |
-| Queued / async execution handoff | Yes |
-| Cache-aligned CoreStats counters | Yes |
-| Linux `perf stat` capture script | Yes |
-| Timestamped perf report generator | Yes |
-| EC2 vs WSL SPSC benchmark report | Yes |
+| C++20 / CMake / Ninja build |
+| ITCH / OUCH / MoldUDP64 codecs | 
+| Market-data replay pipeline | 
+| Venue-local books and normalized BBO |
+| Risk supervisor and order lifecycle simulation | 
+| Software guardrail and permissive gate | 
+| Kernel UDP execution backend | 
+| DPDK-capable execution backend | 
+| AWS EC2 ENA PMD validation | 
+| Hugepage setup on EC2 | 
+| Secondary ENI DPDK binding workflow | 
+| NUMA-aware DPDK mbuf setup |
+| Cache-aligned SPSC ring | 
+| Acquire/release SPSC stress tests |
+| SPSC backend-submit queue | 
+| Queued / async execution handoff |
+| Cache-aligned CoreStats counters | 
+| Linux `perf stat` capture script |  
+| Timestamped perf report generator | 
+| EC2 vs WSL SPSC benchmark report | 
 
 ---
 
