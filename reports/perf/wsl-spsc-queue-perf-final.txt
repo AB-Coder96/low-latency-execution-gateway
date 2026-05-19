@@ -1,0 +1,38 @@
+# perf stat capture
+# date_utc: 2026-05-19T07:01:52Z
+# host: ArazDesktop
+# kernel: Linux ArazDesktop 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# events: cycles,instructions,branches,branch-misses,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,dTLB-loads,dTLB-load-misses
+# seconds: 10
+# warmup_seconds: 2
+# cpu_list: all/process-default
+
+# mode: command
+# command: ./build/debug/apps/fgep_spsc_queue_perf --payload-size 64
+
+
+ Performance counter stats for process id '28523':
+
+       44247098013      cycles                                                                
+       57627773276      instructions                     #    1.30  insn per cycle            
+        9196628839      branches                                                              
+          21169764      branch-misses                    #    0.23% of all branches           
+         779317669      cache-references                                                      
+           1712832      cache-misses                     #    0.22% of all cache refs         
+       17911613387      L1-dcache-loads                                                       
+         606028458      L1-dcache-load-misses            #    3.38% of all L1-dcache accesses 
+       17911261343      dTLB-loads                                                            
+            155429      dTLB-load-misses                 #    0.00% of all dTLB cache accesses
+
+      10.002622366 seconds time elapsed
+
+
+# app output
+spsc_queue_perf_complete
+payload_size=64
+produced=48124000
+consumed=48124000
+checksum=48124000
+submit_queued=48124000
+submit_rejected=175505
+ring_full=175505
