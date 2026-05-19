@@ -1,0 +1,28 @@
+# perf stat capture
+# date_utc: 2026-05-19T02:44:35Z
+# host: ip-172-31-72-198
+# kernel: Linux ip-172-31-72-198 7.0.0-1004-aws #4-Ubuntu SMP PREEMPT Mon Apr 13 13:14:24 UTC 2026 x86_64 GNU/Linux
+# events: cycles,instructions,branches,branch-misses,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,dTLB-loads,dTLB-load-misses
+# seconds: 5
+# warmup_seconds: 1
+# cpu_list: all/process-default
+
+# mode: command
+# command: sleep 60
+
+
+ Performance counter stats for process id '58417':
+
+     <not counted>      cycles                                                                
+     <not counted>      instructions                                                          
+     <not counted>      branches                                                              
+     <not counted>      branch-misses                                                         
+     <not counted>      cache-references                                                      
+     <not counted>      cache-misses                                                          
+     <not counted>      L1-dcache-loads                                                       
+     <not counted>      L1-dcache-load-misses                                                 
+     <not counted>      dTLB-loads                                                            
+     <not counted>      dTLB-load-misses                                                      
+
+       5.061410760 seconds time elapsed
+
