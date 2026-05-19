@@ -8,8 +8,8 @@ The project demonstrates systems engineering across binary protocols, execution-
 
 ## Highlights
 
-| Area | Implemented |
-|---|---|
+| Area |
+|---|
 | C++20 / CMake / Ninja build |
 | ITCH / OUCH / MoldUDP64 codecs | 
 | Market-data replay pipeline | 
