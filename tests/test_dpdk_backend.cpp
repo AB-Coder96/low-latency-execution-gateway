@@ -26,6 +26,7 @@ int main() {
         assert(backend.configured());
         assert(!backend.open());
         assert(backend.port_id() == 0);
+        assert(backend.socket_id() == -1);
         assert(backend.queue_id() == 0);
         assert(backend.burst_size() == 32);
         assert(backend.mbuf_pool_size() == 8192);
@@ -55,6 +56,7 @@ int main() {
             .eal_args = {"fgep-dpdk", "-l", "0-1", "-n", "4"},
             .port_id = 0,
             .queue_id = 0,
+            .socket_id = 0,
             .tx_desc_count = 1024,
             .burst_size = 32,
             .mbuf_pool_size = 8192,
@@ -67,6 +69,7 @@ int main() {
         assert(backend.configured());
         assert(backend.port_id() == 0);
         assert(backend.queue_id() == 0);
+        assert(backend.socket_id() == 0);
         assert(backend.config().eal_args.size() == 5);
 
         const auto bytes = payload();
@@ -157,6 +160,21 @@ int main() {
 
         assert(!backend.configured());
     }
+
+{
+    DpdkExecutionBackend backend{DpdkBackendConfig{
+        .eal_args = {"fgep-dpdk"},
+        .port_id = 0,
+        .queue_id = 0,
+        .socket_id = -2,
+        .tx_desc_count = 1024,
+        .burst_size = 32,
+        .mbuf_pool_size = 8192,
+        .mbuf_cache_size = 250
+    }};
+
+    assert(!backend.configured());
+}
 
     return 0;
 }

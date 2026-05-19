@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <cstring>
+#include <limits>
 #include <utility>
 #include <vector>
 
@@ -79,21 +80,45 @@ void write_ethernet_header(
     header->ether_type = rte_cpu_to_be_16(config.ether_type);
 }
 
+[[nodiscard]] int fallback_socket_id() noexcept {
+    const auto current_socket = rte_socket_id();
 
-[[nodiscard]] unsigned int socket_id_for_port(
-    std::uint16_t port_id
-) noexcept {
-    const auto socket_id = rte_eth_dev_socket_id(port_id);
-
-    if (socket_id < 0) {
-        return rte_socket_id();
+    if (
+        current_socket
+        > static_cast<unsigned int>(std::numeric_limits<int>::max())
+    ) {
+        return 0;
     }
 
-    return static_cast<unsigned int>(socket_id);
+    return static_cast<int>(current_socket);
 }
 
-[[nodiscard]] int current_socket_id() noexcept {
-    return static_cast<int>(rte_socket_id());
+[[nodiscard]] int resolve_socket_id(
+    const DpdkBackendConfig& config
+) noexcept {
+    if (config.socket_id >= 0) {
+        return static_cast<int>(config.socket_id);
+    }
+
+    const auto port_socket = rte_eth_dev_socket_id(config.port_id);
+
+    if (port_socket >= 0) {
+        return port_socket;
+    }
+
+    return fallback_socket_id();
+}
+
+[[nodiscard]] unsigned int queue_socket_id(
+    const DpdkBackendConfig& config
+) noexcept {
+    const auto socket = resolve_socket_id(config);
+
+    if (socket < 0) {
+        return 0U;
+    }
+
+    return static_cast<unsigned int>(socket);
 }
 
 [[nodiscard]] bool configure_port(
@@ -118,7 +143,7 @@ void write_ethernet_header(
         config.port_id,
         config.queue_id,
         config.tx_desc_count,
-        socket_id_for_port(config.port_id),
+        queue_socket_id(config),
         nullptr
     );
 
@@ -175,6 +200,7 @@ DpdkExecutionBackend::DpdkExecutionBackend(
 {
     other.configured_ = false;
     other.open_ = false;
+
 #if FGEP_HAVE_DPDK
     other.mbuf_pool_ = nullptr;
 #endif
@@ -298,6 +324,10 @@ std::uint16_t DpdkExecutionBackend::queue_id() const noexcept {
     return config_.queue_id;
 }
 
+std::int32_t DpdkExecutionBackend::socket_id() const noexcept {
+    return config_.socket_id;
+}
+
 std::uint16_t DpdkExecutionBackend::burst_size() const noexcept {
     return config_.burst_size;
 }
@@ -316,6 +346,7 @@ bool DpdkExecutionBackend::is_valid_config(
     return config.burst_size != 0
         && config.mbuf_pool_size != 0
         && config.tx_desc_count != 0
+        && config.socket_id >= -1
         && config.eal_args.size() >= 1;
 }
 
@@ -339,14 +370,14 @@ void DpdkExecutionBackend::initialize() noexcept {
         return;
     }
 
-auto* pool = rte_pktmbuf_pool_create(
-    "fgep_dpdk_mbuf_pool",
-    static_cast<unsigned int>(config_.mbuf_pool_size),
-    config_.mbuf_cache_size,
-    0,
-    RTE_MBUF_DEFAULT_BUF_SIZE,
-    current_socket_id()
-);
+    auto* pool = rte_pktmbuf_pool_create(
+        "fgep_dpdk_mbuf_pool",
+        static_cast<unsigned int>(config_.mbuf_pool_size),
+        config_.mbuf_cache_size,
+        0,
+        RTE_MBUF_DEFAULT_BUF_SIZE,
+        resolve_socket_id(config_)
+    );
 
     if (pool == nullptr) {
         open_ = false;

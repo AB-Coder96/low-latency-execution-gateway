@@ -18,6 +18,7 @@ struct DpdkBackendConfig {
     std::vector<std::string> eal_args{"fgep-dpdk", "-l", "0-1", "-n", "4"};
     std::uint16_t port_id{};
     std::uint16_t queue_id{};
+    std::int32_t socket_id{-1};
     std::uint16_t tx_desc_count{1024};
     std::uint16_t burst_size{32};
     std::size_t mbuf_pool_size{8192};
@@ -50,7 +51,7 @@ public:
     [[nodiscard]] bool dpdk_available() const noexcept;
 
     [[nodiscard]] const DpdkBackendConfig& config() const noexcept;
-
+    [[nodiscard]] std::int32_t socket_id() const noexcept;
     [[nodiscard]] std::uint16_t port_id() const noexcept;
     [[nodiscard]] std::uint16_t queue_id() const noexcept;
     [[nodiscard]] std::uint16_t burst_size() const noexcept;

@@ -301,3 +301,10 @@ endif()
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_core_stats.cpp")
     fgep_add_test(test_core_stats test_core_stats.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_async_execution_backend.cpp")
+    fgep_add_test(
+        test_async_execution_backend
+        test_async_execution_backend.cpp
+    )
+endif()
