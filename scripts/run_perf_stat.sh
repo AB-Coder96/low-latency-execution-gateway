@@ -112,7 +112,7 @@ echo "# mode: command" | tee -a "$OUTPUT"
 echo "# command: $CMD" | tee -a "$OUTPUT"
 echo | tee -a "$OUTPUT"
 
-bash -lc "$CMD" &
+bash -lc "exec $CMD" &
 CHILD_PID=$!
 
 cleanup() {
