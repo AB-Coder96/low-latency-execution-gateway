@@ -14,7 +14,6 @@
 namespace fgep::execution {
 
 inline constexpr std::size_t max_backend_submit_payload_size = 256U;
-
 inline constexpr std::size_t default_backend_submit_payload_bytes =
     max_backend_submit_payload_size;
 
@@ -64,10 +63,6 @@ struct BackendSubmitQueueItem {
             .payload = payload_span()
         };
     }
-
-    [[nodiscard]] BackendSubmitRequest as_request() const noexcept {
-        return request();
-    }
 };
 
 template <
@@ -111,27 +106,8 @@ public:
         };
     }
 
-    [[nodiscard]] BackendSubmitResult try_push(
-        const BackendSubmitRequest& request
-    ) noexcept {
-        const auto result = push(request);
-
-        if (result.queued()) {
-            return make_backend_accept(request);
-        }
-
-        return make_backend_reject(
-            request,
-            reject_reason_for(result.status)
-        );
-    }
-
     [[nodiscard]] bool pop(Item& item) noexcept {
         return ring_.pop(item);
-    }
-
-    [[nodiscard]] bool try_pop(Item& item) noexcept {
-        return pop(item);
     }
 
     [[nodiscard]] bool empty() const noexcept {
@@ -151,24 +127,6 @@ public:
     }
 
 private:
-    [[nodiscard]] static BackendRejectReason reject_reason_for(
-        BackendSubmitQueuePushStatus status
-    ) noexcept {
-        switch (status) {
-            case BackendSubmitQueuePushStatus::empty_payload:
-                return BackendRejectReason::empty_payload;
-
-            case BackendSubmitQueuePushStatus::payload_too_large:
-            case BackendSubmitQueuePushStatus::queue_full:
-                return BackendRejectReason::capacity_exceeded;
-
-            case BackendSubmitQueuePushStatus::queued:
-                return BackendRejectReason::none;
-        }
-
-        return BackendRejectReason::capacity_exceeded;
-    }
-
     void record_queued() noexcept {
         if (stats_ != nullptr) {
             stats_->increment(::fgep::CoreCounter::submit_queued);
