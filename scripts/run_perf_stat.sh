@@ -8,7 +8,7 @@ usage() {
   echo
   echo "examples:"
   echo "  $0 --pid 1234 --seconds 30 --output reports/perf/ec2-perf-stat.txt"
-  echo "  $0 --cmd './build/debug/apps/fgep_replay --help' --warmup 5 --seconds 30"
+  echo "  $0 --cmd './build/debug/apps/fgep_spsc_queue_perf --payload-size 64' --warmup 2 --seconds 10"
 }
 
 PID=""
@@ -17,6 +17,8 @@ SECONDS_TO_RUN="30"
 WARMUP_SECONDS="5"
 OUTPUT="reports/perf/perf-stat.txt"
 CPU_LIST=""
+APP_OUTPUT=""
+CHILD_PID=""
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
@@ -85,7 +87,7 @@ EVENTS="cycles,instructions,branches,branch-misses,cache-references,cache-misses
 
 if [[ -n "$PID" ]]; then
   if ! kill -0 "$PID" 2>/dev/null; then
-    echo "error: pid $PID does not exist"
+    echo "error: pid $PID does not exist" | tee -a "$OUTPUT"
     exit 1
   fi
 
@@ -112,22 +114,34 @@ echo "# mode: command" | tee -a "$OUTPUT"
 echo "# command: $CMD" | tee -a "$OUTPUT"
 echo | tee -a "$OUTPUT"
 
-bash -lc "exec $CMD" &
-CHILD_PID=$!
+APP_OUTPUT="$(mktemp)"
 
 cleanup() {
-  if kill -0 "$CHILD_PID" 2>/dev/null; then
+  if [[ -n "${CHILD_PID:-}" ]] && kill -0 "$CHILD_PID" 2>/dev/null; then
     kill "$CHILD_PID" 2>/dev/null || true
     wait "$CHILD_PID" 2>/dev/null || true
   fi
+
+  if [[ -n "${APP_OUTPUT:-}" && -f "$APP_OUTPUT" ]]; then
+    rm -f "$APP_OUTPUT"
+  fi
 }
 
-trap cleanup EXIT
+trap cleanup EXIT INT TERM
+
+bash -lc "exec $CMD" > "$APP_OUTPUT" 2>&1 &
+CHILD_PID=$!
 
 sleep "$WARMUP_SECONDS"
 
 if ! kill -0 "$CHILD_PID" 2>/dev/null; then
-  echo "error: command exited before perf measurement started" | tee -a "$OUTPUT"
+  {
+    echo "error: command exited before perf measurement started"
+    echo
+    echo "# app output"
+    cat "$APP_OUTPUT"
+  } | tee -a "$OUTPUT"
+
   exit 1
 fi
 
@@ -143,5 +157,16 @@ else
     2>&1 | tee -a "$OUTPUT"
 fi
 
-cleanup
-trap - EXIT
+if [[ -n "${CHILD_PID:-}" ]] && kill -0 "$CHILD_PID" 2>/dev/null; then
+  kill "$CHILD_PID" 2>/dev/null || true
+  wait "$CHILD_PID" 2>/dev/null || true
+fi
+
+{
+  echo
+  echo "# app output"
+  cat "$APP_OUTPUT" 2>/dev/null || true
+} | tee -a "$OUTPUT"
+
+rm -f "$APP_OUTPUT"
+trap - EXIT INT TERM

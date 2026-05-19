@@ -1,0 +1,13 @@
+# perf stat capture
+# date_utc: 2026-05-19T05:51:48Z
+# host: ArazDesktop
+# kernel: Linux ArazDesktop 6.6.114.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Mon Dec  1 20:46:23 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux
+# events: cycles,instructions,branches,branch-misses,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,dTLB-loads,dTLB-load-misses
+# seconds: 10
+# warmup_seconds: 2
+# cpu_list: all/process-default
+
+# mode: command
+# command: ./build/debug/apps/fgep_spsc_queue_perf --payload-size 64
+
+sudo: perf: command not found
