@@ -369,7 +369,6 @@ EC2 vs WSL summary report
 timestamped perf reports with system metadata
 ```
 
-
 ## next benchmark
 
 A useful follow-up benchmark is:
@@ -383,7 +382,7 @@ BackendSubmitQueue
 
 This would measure the cost of extending the current SPSC execution handoff into the DPDK TX path on EC2.
 
-Another useful follow-up comparison is:
+Another follow-up comparison is:
 
 ```text
 KernelUdpExecutionBackend on EC2
