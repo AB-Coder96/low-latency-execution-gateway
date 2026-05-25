@@ -47,6 +47,69 @@
                 "FGEP_BUILD_BENCHMARKS": "ON",
                 "FGEP_ENABLE_WARNINGS": "ON"
             }
+        },
+        {
+            "name": "profile",
+            "displayName": "Profile",
+            "description": "Release build with profiling-friendly debug symbols and frame pointers.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/profile",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "OFF",
+                "FGEP_ENABLE_WARNINGS": "ON",
+                "FGEP_ENABLE_PROFILING": "ON"
+            }
+        },
+        {
+            "name": "threaded-debug",
+            "displayName": "Threaded Debug",
+            "description": "Debug build with threaded runtime components enabled.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/threaded-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "OFF",
+                "FGEP_ENABLE_WARNINGS": "ON",
+                "FGEP_ENABLE_THREADS": "ON"
+            }
+        },
+        {
+            "name": "runtime-debug",
+            "displayName": "Runtime Debug",
+            "description": "Debug build for runtime no-heap and Linux I/O guarded tests.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/runtime-debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "OFF",
+                "FGEP_ENABLE_WARNINGS": "ON",
+                "FGEP_ENABLE_RUNTIME_NO_HEAP_TESTS": "ON",
+                "FGEP_ENABLE_LINUX_IO": "ON"
+            }
+        },
+        {
+            "name": "bench-profile",
+            "displayName": "Benchmark Profile",
+            "description": "Release benchmark build with profiling flags and optional hardware counters.",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/bench-profile",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "FGEP_BUILD_TESTS": "ON",
+                "FGEP_BUILD_APPS": "ON",
+                "FGEP_BUILD_BENCHMARKS": "ON",
+                "FGEP_ENABLE_WARNINGS": "ON",
+                "FGEP_ENABLE_PROFILING": "ON",
+                "FGEP_ENABLE_HARDWARE_COUNTERS": "ON",
+                "FGEP_ENABLE_GOOGLE_BENCHMARK": "ON"
+            }
         }
     ],
     "buildPresets": [
@@ -61,6 +124,22 @@
         {
             "name": "bench",
             "configurePreset": "bench"
+        },
+        {
+            "name": "profile",
+            "configurePreset": "profile"
+        },
+        {
+            "name": "threaded-debug",
+            "configurePreset": "threaded-debug"
+        },
+        {
+            "name": "runtime-debug",
+            "configurePreset": "runtime-debug"
+        },
+        {
+            "name": "bench-profile",
+            "configurePreset": "bench-profile"
         }
     ],
     "testPresets": [
@@ -74,6 +153,34 @@
         {
             "name": "release",
             "configurePreset": "release",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "profile",
+            "configurePreset": "profile",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "threaded-debug",
+            "configurePreset": "threaded-debug",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "runtime-debug",
+            "configurePreset": "runtime-debug",
+            "output": {
+                "outputOnFailure": true
+            }
+        },
+        {
+            "name": "bench-profile",
+            "configurePreset": "bench-profile",
             "output": {
                 "outputOnFailure": true
             }
