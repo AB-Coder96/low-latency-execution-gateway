@@ -4,9 +4,16 @@
 
 #include <cstddef>
 #include <optional>
+#include <string_view>
 #include <vector>
 
 namespace fgep::telemetry {
+
+enum class LatencyMeasurementKind {
+    synthetic_deterministic,
+    wall_clock_host,
+    network_end_to_end
+};
 
 struct LatencySummary {
     std::size_t count{};
@@ -17,7 +24,16 @@ struct LatencySummary {
     DurationNs p90_ns{};
     DurationNs p99_ns{};
     DurationNs p999_ns{};
+    std::size_t warmup_count{};
 };
+
+[[nodiscard]] std::string_view latency_measurement_kind_name(
+    LatencyMeasurementKind kind
+) noexcept;
+
+[[nodiscard]] std::string_view latency_measurement_kind_note(
+    LatencyMeasurementKind kind
+) noexcept;
 
 [[nodiscard]] std::optional<LatencySummary> summarize_latencies(
     std::vector<DurationNs> samples

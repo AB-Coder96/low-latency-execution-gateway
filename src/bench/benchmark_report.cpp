@@ -6,11 +6,37 @@
 namespace fgep::bench {
 namespace {
 
+void append_measurement_notes(
+    std::ostringstream& output,
+    const BenchmarkReportMetadata& metadata
+) {
+    output << "## Measurement notes\n\n";
+    output << "| Field | Value |\n";
+    output << "|---|---|\n";
+    output << "| latency_type | "
+           << telemetry::latency_measurement_kind_name(
+                  metadata.latency_measurement_kind
+              )
+           << " |\n";
+    output << "| warmup_count | " << metadata.warmup_count << " |\n";
+    output << "| notes | "
+           << telemetry::latency_measurement_kind_note(
+                  metadata.latency_measurement_kind
+              )
+           << " |\n\n";
+}
+
 void append_latency_summary(
     std::ostringstream& output,
-    const telemetry::LatencySummary& summary
+    const telemetry::LatencySummary& summary,
+    const BenchmarkReportMetadata& metadata
 ) {
+    const auto warmup_count = summary.warmup_count != 0U
+        ? summary.warmup_count
+        : metadata.warmup_count;
+
     output << "| count | " << summary.count << " |\n";
+    output << "| warmup_count | " << warmup_count << " |\n";
     output << "| min_ns | " << summary.min_ns << " |\n";
     output << "| max_ns | " << summary.max_ns << " |\n";
     output << "| mean_ns | " << summary.mean_ns << " |\n";
@@ -18,6 +44,16 @@ void append_latency_summary(
     output << "| p90_ns | " << summary.p90_ns << " |\n";
     output << "| p99_ns | " << summary.p99_ns << " |\n";
     output << "| p999_ns | " << summary.p999_ns << " |\n";
+    output << "| measurement_type | "
+           << telemetry::latency_measurement_kind_name(
+                  metadata.latency_measurement_kind
+              )
+           << " |\n";
+    output << "| measurement_notes | "
+           << telemetry::latency_measurement_kind_note(
+                  metadata.latency_measurement_kind
+              )
+           << " |\n";
 }
 
 } // namespace
@@ -43,6 +79,8 @@ std::string format_execution_benchmark_markdown(
         output << metadata.notes << "\n\n";
     }
 
+    append_measurement_notes(output, metadata);
+
     output << "## Summary\n\n";
     output << "| Metric | Value |\n";
     output << "|---|---:|\n";
@@ -64,7 +102,7 @@ std::string format_execution_benchmark_markdown(
 
     output << "| Metric | Value |\n";
     output << "|---|---:|\n";
-    append_latency_summary(output, result.end_to_end_latency.value());
+    append_latency_summary(output, result.end_to_end_latency.value(), metadata);
 
     return output.str();
 }
@@ -99,7 +137,6 @@ void append_backend_technology_row(
     }
 }
 
-
 std::string format_backend_benchmark_markdown(
     const BackendBenchmarkResult& result,
     const BenchmarkReportMetadata& metadata
@@ -112,6 +149,8 @@ std::string format_backend_benchmark_markdown(
     if (!metadata.notes.empty()) {
         output << metadata.notes << "\n\n";
     }
+
+    append_measurement_notes(output, metadata);
 
     output << "## Backend comparison\n\n";
     output << "| Technology | Submissions | Accepted | Rejected | "
@@ -160,7 +199,6 @@ void append_wall_clock_backend_technology_row(
     }
 }
 
-
 std::string format_wall_clock_backend_benchmark_markdown(
     const WallClockBackendBenchmarkResult& result,
     const BenchmarkReportMetadata& metadata
@@ -173,6 +211,8 @@ std::string format_wall_clock_backend_benchmark_markdown(
     if (!metadata.notes.empty()) {
         output << metadata.notes << "\n\n";
     }
+
+    append_measurement_notes(output, metadata);
 
     output << "## Wall-clock backend comparison\n\n";
     output << "| Technology | Submissions | Accepted | Rejected | "

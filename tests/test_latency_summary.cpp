@@ -6,6 +6,26 @@
 int main() {
     using namespace fgep::telemetry;
 
+{
+    assert(
+        latency_measurement_kind_name(
+            LatencyMeasurementKind::synthetic_deterministic
+        ) == "synthetic deterministic latency"
+    );
+
+    assert(
+        latency_measurement_kind_name(
+            LatencyMeasurementKind::wall_clock_host
+        ) == "wall-clock host latency"
+    );
+
+    assert(
+        latency_measurement_kind_name(
+            LatencyMeasurementKind::network_end_to_end
+        ) == "network end-to-end latency"
+    );
+    }
+
     {
         const auto summary = summarize_latencies({});
 

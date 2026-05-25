@@ -1,8 +1,11 @@
 #pragma once
 
-#include "fgep/bench/execution_benchmark.hpp"
 #include "fgep/bench/backend_benchmark.hpp"
+#include "fgep/bench/execution_benchmark.hpp"
 #include "fgep/bench/wall_clock_backend_benchmark.hpp"
+
+#include <cstddef>
+#include <cstdint>
 #include <string>
 #include <string_view>
 
@@ -12,6 +15,10 @@ struct BenchmarkReportMetadata {
     std::string title{"Execution Benchmark"};
     std::string backend_name{"simulated"};
     std::string notes{};
+    telemetry::LatencyMeasurementKind latency_measurement_kind{
+        telemetry::LatencyMeasurementKind::synthetic_deterministic
+    };
+    std::size_t warmup_count{};
 };
 
 [[nodiscard]] std::string format_duration_ns(
@@ -32,7 +39,6 @@ struct BenchmarkReportMetadata {
     const BenchmarkReportMetadata& metadata = {}
 );
 
-
 [[nodiscard]] bool contains_text(
     std::string_view text,
     std::string_view needle
@@ -42,4 +48,5 @@ struct BenchmarkReportMetadata {
     const BackendBenchmarkResult& result,
     const BenchmarkReportMetadata& metadata = {}
 );
+
 } // namespace fgep::bench
