@@ -27,11 +27,20 @@ public:
     [[nodiscard]] BackendSubmitResult submit(
         const BackendSubmitRequest& request
     ) override {
-        return queue_.try_push(request);
+        const auto result = queue_.push(request);
+
+        if (result.queued()) {
+            return make_backend_accept(request);
+        }
+
+        return make_backend_reject(
+            request,
+            reject_reason_for(result.status)
+        );
     }
 
     [[nodiscard]] bool try_pop(Entry& out) noexcept {
-        return queue_.try_pop(out);
+        return queue_.pop(out);
     }
 
     [[nodiscard]] bool empty() const noexcept {
@@ -47,17 +56,17 @@ public:
     }
 
     [[nodiscard]] static constexpr std::size_t max_payload_bytes() noexcept {
-        return Queue::max_payload_bytes();
+        return Queue::max_payload_size();
     }
 
     [[nodiscard]] bool drain_one_to(ExecutionBackend& backend) {
         Entry entry{};
 
-        if (!queue_.try_pop(entry)) {
+        if (!queue_.pop(entry)) {
             return false;
         }
 
-        const auto request = entry.as_request();
+        const auto request = entry.request();
         (void)backend.submit(request);
         return true;
     }
@@ -76,6 +85,22 @@ public:
     }
 
 private:
+    [[nodiscard]] static constexpr BackendRejectReason reject_reason_for(
+        BackendSubmitQueuePushStatus status
+    ) noexcept {
+        switch (status) {
+        case BackendSubmitQueuePushStatus::queued:
+            return BackendRejectReason::none;
+        case BackendSubmitQueuePushStatus::empty_payload:
+            return BackendRejectReason::empty_payload;
+        case BackendSubmitQueuePushStatus::payload_too_large:
+        case BackendSubmitQueuePushStatus::queue_full:
+            return BackendRejectReason::capacity_exceeded;
+        }
+
+        return BackendRejectReason::capacity_exceeded;
+    }
+
     Queue queue_{};
 };
 
