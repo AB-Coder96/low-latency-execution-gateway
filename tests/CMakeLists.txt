@@ -308,3 +308,40 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_async_execution_backend.cpp")
         test_async_execution_backend.cpp
     )
 endif()
+
+if(FGEP_GOOGLETEST_AVAILABLE)
+    include(GoogleTest)
+
+    function(fgep_add_gtest test_name source_file)
+        add_executable(
+            ${test_name}
+            ${source_file}
+        )
+
+        target_link_libraries(
+            ${test_name}
+            PRIVATE
+                fgep
+                GTest::gtest_main
+        )
+
+        target_compile_features(
+            ${test_name}
+            PRIVATE
+                cxx_std_20
+        )
+
+        add_test(
+            NAME ${test_name}
+            COMMAND ${test_name}
+        )
+
+        gtest_discover_tests(
+            ${test_name}
+            DISCOVERY_MODE PRE_TEST
+        )
+    endfunction()
+
+    fgep_add_gtest(gtest_core_types gtest_core_types.cpp)
+    fgep_add_gtest(gtest_latency_summary gtest_latency_summary.cpp)
+endif()

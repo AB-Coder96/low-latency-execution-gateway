@@ -197,12 +197,16 @@ if(FGEP_ENABLE_WARNINGS)
     endif()
 endif()
 
+
+
+
 # ---------------------------------------------------------------------------
 # Optional subdirectories
 # ---------------------------------------------------------------------------
 include(cmake/ProjectOptions.cmake)
 include(cmake/CompilerWarnings.cmake)
 include(cmake/Sanitizers.cmake)
+include(cmake/ThirdParty.cmake)
 include(CTest)
 
 if(FGEP_BUILD_TESTS AND EXISTS "${PROJECT_SOURCE_DIR}/tests/CMakeLists.txt")
@@ -218,6 +222,31 @@ if(FGEP_BUILD_BENCHMARKS AND EXISTS "${PROJECT_SOURCE_DIR}/benchmarks/CMakeLists
     add_subdirectory(benchmarks)
 endif()
 
+if(FGEP_GOOGLETEST_AVAILABLE)
+    include(GoogleTest)
+
+    function(fgep_add_gtest test_name source_file)
+        add_executable(
+            ${test_name}
+            ${source_file}
+        )
+
+        target_link_libraries(
+            ${test_name}
+            PRIVATE
+                fgep
+                GTest::gtest_main
+        )
+
+        target_compile_features(
+            ${test_name}
+            PRIVATE
+                cxx_std_20
+        )
+
+        gtest_discover_tests(${test_name})
+    endfunction()
+endif()
 # ---------------------------------------------------------------------------
 # Status summary
 # ---------------------------------------------------------------------------
