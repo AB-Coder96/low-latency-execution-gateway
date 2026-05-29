@@ -70,6 +70,31 @@ producer thread
 ```
 
 ---
+## Runtime performance architecture docs
+
+The runtime performance roadmap is documented before deeper runtime rewrites begin:
+
+```text
+docs/runtime_memory_model.md
+docs/runtime_threading_model.md
+docs/cache_tlb_tuning.md
+docs/network_benchmarking.md
+docs/profiling.md
+```
+
+These documents describe:
+
+```text
+initialization vs runtime phase boundaries
+no-heap-after-initialization goals
+single-owner threaded state
+queue-based cross-thread handoff
+allowed atomic usage
+cache/TLB tuning policy
+profiling workflow
+network benchmark limitations
+```
+
 
 ## Repository layout
 
