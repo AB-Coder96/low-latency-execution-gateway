@@ -45,7 +45,8 @@
                 "FGEP_BUILD_TESTS": "ON",
                 "FGEP_BUILD_APPS": "ON",
                 "FGEP_BUILD_BENCHMARKS": "ON",
-                "FGEP_ENABLE_WARNINGS": "ON"
+                "FGEP_ENABLE_WARNINGS": "ON",
+                "FGEP_ENABLE_GOOGLE_BENCHMARK": "ON"
             }
         },
         {
