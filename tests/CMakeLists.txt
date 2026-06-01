@@ -345,3 +345,7 @@ if(FGEP_GOOGLETEST_AVAILABLE)
     fgep_add_gtest(gtest_core_types gtest_core_types.cpp)
     fgep_add_gtest(gtest_latency_summary gtest_latency_summary.cpp)
 endif()
+
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_runtime_phase.cpp")
+    fgep_add_test(test_runtime_phase test_runtime_phase.cpp)
+endif()
