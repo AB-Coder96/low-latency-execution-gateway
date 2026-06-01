@@ -1,0 +1,31 @@
+hotpath_encoded;[unknown];__memmove_evex_unaligned_erms 26217486
+hotpath_encoded;[unknown];__memset_evex_unaligned_erms 5530598
+hotpath_encoded;[unknown];cfree@GLIBC_2.2.5 28614597
+hotpath_encoded;[unknown];fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul> 83519859
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::clear 31908129
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::clear;_int_free 10323826
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::clear;cfree@GLIBC_2.2.5 23360531
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::clear;cfree@GLIBC_2.2.5;_int_free 72639355
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::submit 64988774
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::submit;malloc 33830249
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::submit;malloc@plt 17916108
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::submit;operator new 9987925
+hotpath_encoded;[unknown];fgep::execution::RecordingExecutionBackend::submit;operator new;malloc 39028876
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend 180287974
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;_int_free 5126663
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;cfree@GLIBC_2.2.5 21093828
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;cfree@GLIBC_2.2.5;_int_free 26575351
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;malloc@plt 20389306
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;operator new 10631082
+hotpath_encoded;[unknown];fgep::execution::submit_enter_order_to_backend;operator new;malloc 16646724
+hotpath_encoded;[unknown];fgep::ouch::(anonymous namespace)::write_appendage 20936385
+hotpath_encoded;[unknown];fgep::ouch::encode_enter_order_message 105646890
+hotpath_encoded;[unknown];memmove@plt 15725471
+hotpath_encoded;[unknown];memset@plt 2695802
+hotpath_encoded;[unknown];operator delete 28557826
+hotpath_encoded;[unknown];operator new 7735687
+hotpath_encoded;_dl_start_user;_dl_start;_dl_sysdep_start;dl_main;_dl_relocate_object 442192
+hotpath_encoded;_dl_start_user;_dl_start;_dl_sysdep_start;dl_main;_dl_relocate_object;_dl_lookup_symbol_x 442192
+hotpath_encoded;fgep::execution::RecordingExecutionBackend::clear 10205605
+hotpath_encoded;fgep::execution::submit_enter_order_to_backend 28419387
+hotpath_encoded;main 318930775

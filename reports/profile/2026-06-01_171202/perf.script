@@ -1,0 +1,2018 @@
+hotpath_encoded  303777 209076.279386:     442192 cycles:Pu: 
+	    7e44caf97a22 _dl_relocate_object+0x7e2 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafaa789 dl_main+0x1c99 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa6f46 _dl_sysdep_start+0x86 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa875e _dl_start+0x58e (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa7548 _dl_start_user+0x0 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+
+hotpath_encoded  303777 209076.280108:     442192 cycles:Pu: 
+	    7e44caf93133 _dl_lookup_symbol_x+0x63 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44caf97ae3 _dl_relocate_object+0x8a3 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafaa789 dl_main+0x1c99 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa6f46 _dl_sysdep_start+0x86 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa875e _dl_start+0x58e (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+	    7e44cafa7548 _dl_start_user+0x0 (/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+
+hotpath_encoded  303777 209076.280408:     462076 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.280580:     597871 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.280792:     956924 cycles:Pu: 
+	    7e44ca8ad7cb malloc+0x15b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.281147:    1404789 cycles:Pu: 
+	    6468a953f0a9 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x89 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.281638:    1725098 cycles:Pu: 
+	    6468a953e588 main+0x248 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.282252:    1949918 cycles:Pu: 
+	    6468a953fc7e fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x25e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.282997:    2098851 cycles:Pu: 
+	    6468a953f087 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x67 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.283728:    2189872 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.284503:    2291792 cycles:Pu: 
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.285320:    2376161 cycles:Pu: 
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.286168:    2443835 cycles:Pu: 
+	    6468a953f020 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.287045:    2531108 cycles:Pu: 
+	    7e44ca8ab19a _int_free+0x2a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.287938:    2576543 cycles:Pu: 
+	    6468a953eb08 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xa8 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.288847:    2616104 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.289756:    2650022 cycles:Pu: 
+	    6468a953f194 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x174 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.290691:    2684041 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.291682:    2724574 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.292643:    2728564 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.293663:    2743577 cycles:Pu: 
+	    6468a953e566 main+0x226 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.294639:    2737849 cycles:Pu: 
+	    7e44ca8ab1a4 _int_free+0x34 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.295618:    2750359 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.296604:    2758740 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.297586:    2764522 cycles:Pu: 
+	    6468a953f051 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x31 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.298569:    2771896 cycles:Pu: 
+	    6468a953f12d fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x10d (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.299590:    2783266 cycles:Pu: 
+	    6468a953f0ed fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xcd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.300592:    2776950 cycles:Pu: 
+	    7e44ca9993d9 __memset_evex_unaligned_erms+0x19 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.301572:    2777506 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.302554:    2785407 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.303556:    2793420 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.304578:    2793764 cycles:Pu: 
+	    6468a953f020 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.305598:    2787282 cycles:Pu: 
+	    6468a953fa73 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x53 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.306628:    2781478 cycles:Pu: 
+	    6468a953e5fa main+0x2ba (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.307686:    2768479 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.308706:    2750464 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.309845:    2744594 cycles:Pu: 
+	    6468a953eb72 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x112 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.310855:    2703853 cycles:Pu: 
+	    7e44ca8ab1f7 _int_free+0x87 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.311911:    2695802 cycles:Pu: 
+	    6468a953e160 memset@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.312881:    2678922 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.313857:    2690066 cycles:Pu: 
+	    7e44ca8add75 cfree@GLIBC_2.2.5+0x25 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.314827:    2699451 cycles:Pu: 
+	    7e44ca8ad7ed malloc+0x17d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.315810:    2706662 cycles:Pu: 
+	    6468a953ee5b fgep::execution::RecordingExecutionBackend::clear()+0x4b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.316784:    2713770 cycles:Pu: 
+	    7e44ca99896b __memmove_evex_unaligned_erms+0x2b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.317760:    2723933 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.318739:    2733304 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.319729:    2745770 cycles:Pu: 
+	    6468a953fbbc fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x19c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.320737:    2750315 cycles:Pu: 
+	    7e44cacb98a0 operator delete(void*)+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.321727:    2748872 cycles:Pu: 
+	    6468a953ea60 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.322717:    2753201 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.323715:    2759257 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.324708:    2760697 cycles:Pu: 
+	    6468a95404c5 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x125 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.325735:    2764308 cycles:Pu: 
+	    6468a953ea60 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.326745:    2756429 cycles:Pu: 
+	    6468a953ee3c fgep::execution::RecordingExecutionBackend::clear()+0x2c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.327757:    2752922 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.328750:    2749875 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.329739:    2753648 cycles:Pu: 
+	    7e44ca9993d9 __memset_evex_unaligned_erms+0x19 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.330730:    2758240 cycles:Pu: 
+	    7e44ca8adddc cfree@GLIBC_2.2.5+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.331735:    2763694 cycles:Pu: 
+	    6468a953ee60 fgep::execution::RecordingExecutionBackend::clear()+0x50 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.332731:    2763096 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.333725:    2765522 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.334732:    2768741 cycles:Pu: 
+	    6468a953f186 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x166 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.335736:    2767684 cycles:Pu: 
+	    7e44ca8ad7e8 malloc+0x178 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.336732:    2767104 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.337727:    2769653 cycles:Pu: 
+	    7e44cacbb8ed operator new(unsigned long)+0xd (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.338746:    2772344 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.339752:    2766878 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.340750:    2765769 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.341764:    2767772 cycles:Pu: 
+	    7e44ca998953 __memmove_evex_unaligned_erms+0x13 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.342777:    2763928 cycles:Pu: 
+	    6468a954041b fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x7b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.343785:    2759735 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.344778:    2758193 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.345770:    2761450 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.346764:    2765295 cycles:Pu: 
+	    7e44ca8add6e cfree@GLIBC_2.2.5+0x1e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.347798:    2769788 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.348795:    2759570 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.349788:    2761427 cycles:Pu: 
+	    7e44ca8ad680 malloc+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.350782:    2765019 cycles:Pu: 
+	    6468a953fb8c fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x16c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.351787:    2767204 cycles:Pu: 
+	    7e44cacb98a0 operator delete(void*)+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.352795:    2766404 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.353791:    2764667 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.354786:    2767127 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.355790:    2770138 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.356788:    2769596 cycles:Pu: 
+	    7e44ca8ab365 _int_free+0x1f5 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.357805:    2771353 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.358818:    2766635 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.359847:    2762067 cycles:Pu: 
+	    6468a953ee5b fgep::execution::RecordingExecutionBackend::clear()+0x4b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.360842:    2753393 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.361833:    2756344 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.362845:    2760686 cycles:Pu: 
+	    6468a953fcdd fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2bd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.363838:    2757652 cycles:Pu: 
+	    6468a953ee5f fgep::execution::RecordingExecutionBackend::clear()+0x4f (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.364830:    2760841 cycles:Pu: 
+	    6468a953fb34 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x114 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.365824:    2764602 cycles:Pu: 
+	    6468a953e558 main+0x218 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.366837:    2768794 cycles:Pu: 
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.367834:    2765202 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.368854:    2767402 cycles:Pu: 
+	    7e44cacb98a0 operator delete(void*)+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.369851:    2761664 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.370853:    2763486 cycles:Pu: 
+	    6468a953ea71 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x11 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.371864:    2763845 cycles:Pu: 
+	    6468a953f5c7 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.372862:    2761203 cycles:Pu: 
+	    6468a953e5c9 main+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.373856:    2762688 cycles:Pu: 
+	    6468a953ee41 fgep::execution::RecordingExecutionBackend::clear()+0x31 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.374884:    2764466 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.375898:    2756054 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.376890:    2752258 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.377881:    2755997 cycles:Pu: 
+	    6468a953fbeb fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x1cb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.378884:    2760620 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.379890:    2760511 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.380883:    2759729 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.381876:    2762914 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.382904:    2767020 cycles:Pu: 
+	    6468a953e5c9 main+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.383913:    2758512 cycles:Pu: 
+	    6468a953ea8e fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x2e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.384906:    2756555 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.385898:    2759962 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.386899:    2762587 cycles:Pu: 
+	    6468a953e574 main+0x234 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.387929:    2763435 cycles:Pu: 
+	    7e44ca8ad7ed malloc+0x17d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.388925:    2754293 cycles:Pu: 
+	    7e44ca998953 __memmove_evex_unaligned_erms+0x13 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.389916:    2756821 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.390937:    2759153 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.391949:    2753085 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.392940:    2750149 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.393929:    2754191 cycles:Pu: 
+	    7e44ca998965 __memmove_evex_unaligned_erms+0x25 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.394928:    2759484 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.395933:    2761018 cycles:Pu: 
+	    6468a953f0ed fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xcd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.396927:    2760439 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.397921:    2763361 cycles:Pu: 
+	    6468a953f10e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xee (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.398924:    2767286 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.399949:    2767273 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.400945:    2759866 cycles:Pu: 
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.401938:    2762185 cycles:Pu: 
+	    6468a953e5b1 main+0x271 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.403109:    2752532 cycles:Pu: 
+	    7e44cacbb909 operator new(unsigned long)+0x29 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.404159:    2703240 cycles:Pu: 
+	    6468a953fd01 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2e1 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.405171:    2688146 cycles:Pu: 
+	    6468a953eadf fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x7f (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.406177:    2684895 cycles:Pu: 
+	    6468a953f5ff fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x3f (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.407202:    2679951 cycles:Pu: 
+	    6468a953fbb8 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x198 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.408229:    2672938 cycles:Pu: 
+	    7e44ca8ad6bf malloc+0x4f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.409231:    2665060 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.410228:    2665414 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.411241:    2665134 cycles:Pu: 
+	    6468a953fc49 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x229 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.412268:    2661736 cycles:Pu: 
+	    6468a953ea8e fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x2e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.413264:    2654079 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.414259:    2656274 cycles:Pu: 
+	    6468a953f5c0 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.415269:    2657898 cycles:Pu: 
+	    6468a953fae8 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0xc8 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.416263:    2655512 cycles:Pu: 
+	    7e44ca8ad7c0 malloc+0x150 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.417275:    2658495 cycles:Pu: 
+	    6468a953f5f4 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x34 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.418370:    2655471 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.419434:    2621471 cycles:Pu: 
+	    6468a953ee22 fgep::execution::RecordingExecutionBackend::clear()+0x12 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.420430:    2602322 cycles:Pu: 
+	    6468a953fa36 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x16 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.421424:    2604828 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.422414:    2607530 cycles:Pu: 
+	    6468a95404c5 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x125 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.423424:    2612040 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.424415:    2609840 cycles:Pu: 
+	    7e44ca8ab18b _int_free+0x1b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.425405:    2613601 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.426395:    2618100 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.427397:    2623370 cycles:Pu: 
+	    7e44ca8ab1f7 _int_free+0x87 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.428392:    2623890 cycles:Pu: 
+	    6468a953f0a9 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x89 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.429422:    2626499 cycles:Pu: 
+	    6468a953fa73 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x53 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.430418:    2617803 cycles:Pu: 
+	    7e44ca8ab365 _int_free+0x1f5 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.431423:    2619374 cycles:Pu: 
+	    7e44ca8add75 cfree@GLIBC_2.2.5+0x25 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.432420:    2618970 cycles:Pu: 
+	    7e44ca8ad7c6 malloc+0x156 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.433417:    2620939 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.434504:    2622688 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.435507:    2594024 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.436475:    2593649 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.437443:    2605312 cycles:Pu: 
+	    7e44ca8ab369 _int_free+0x1f9 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.438415:    2617235 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.439401:    2633417 cycles:Pu: 
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.440385:    2639220 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.441370:    2645394 cycles:Pu: 
+	    6468a953fab3 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x93 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.442376:    2651412 cycles:Pu: 
+	    6468a953e180 operator new(unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.443376:    2652456 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.444365:    2653628 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.445392:    2658102 cycles:Pu: 
+	    7e44ca8ab170 _int_free+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.446385:    2650457 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.447383:    2654260 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.448374:    2655722 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.449377:    2659996 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.450390:    2659866 cycles:Pu: 
+	    7e44ca8ab1fc _int_free+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.451397:    2656941 cycles:Pu: 
+	    7e44ca8ab1c5 _int_free+0x55 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.452389:    2655424 cycles:Pu: 
+	    6468a953fb63 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x143 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.453381:    2659107 cycles:Pu: 
+	    6468a953eb54 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xf4 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.454374:    2662860 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.455401:    2667558 cycles:Pu: 
+	    6468a953fc55 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x235 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.456399:    2659799 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.457411:    2661485 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.458407:    2658557 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.459438:    2657693 cycles:Pu: 
+	    6468a953f10f fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xef (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.460432:    2648784 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.461421:    2651662 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.462410:    2656405 cycles:Pu: 
+	    6468a9540487 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xe7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.463409:    2662458 cycles:Pu: 
+	    6468a953eb78 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x118 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.464417:    2663894 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.465523:    2662448 cycles:Pu: 
+	    6468a953f160 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x140 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.466540:    2631412 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.467536:    2621361 cycles:Pu: 
+	    6468a953f032 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x12 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.468515:    2623216 cycles:Pu: 
+	    6468a953fd04 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2e4 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.469494:    2631351 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.470495:    2639444 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.471490:    2643304 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.472477:    2645878 cycles:Pu: 
+	    7e44ca8adddc cfree@GLIBC_2.2.5+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.473464:    2651462 cycles:Pu: 
+	    6468a9540487 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xe7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.474453:    2656807 cycles:Pu: 
+	    7e44ca8ad6ba malloc+0x4a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.475452:    2663757 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.476469:    2665076 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.477464:    2660791 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.478457:    2663350 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.479464:    2666902 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.480975:    2665564 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.481976:    2553654 cycles:Pu: 
+	    6468a95403ee fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x4e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.482966:    2525015 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.483936:    2529203 cycles:Pu: 
+	    7e44cacb98a0 operator delete(void*)+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.484881:    2539884 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.485828:    2559427 cycles:Pu: 
+	    6468a953eaea fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x8a (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.486784:    2578043 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.487754:    2600991 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.488724:    2612086 cycles:Pu: 
+	    6468a953f618 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x58 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.489749:    2623066 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.490729:    2615965 cycles:Pu: 
+	    7e44ca8add9a cfree@GLIBC_2.2.5+0x4a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.491745:    2626761 cycles:Pu: 
+	    6468a953f087 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x67 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.492727:    2622469 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.493705:    2629758 cycles:Pu: 
+	    6468a953eaf0 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x90 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.494686:    2637994 cycles:Pu: 
+	    6468a953e5c9 main+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.495679:    2647224 cycles:Pu: 
+	    6468a953ee45 fgep::execution::RecordingExecutionBackend::clear()+0x35 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.496706:    2650703 cycles:Pu: 
+	    7e44ca8ad7fa malloc+0x18a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.497758:    2642825 cycles:Pu: 
+	    7e44ca8add6e cfree@GLIBC_2.2.5+0x1e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.498784:    2627448 cycles:Pu: 
+	    7e44ca8ad7e4 malloc+0x174 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.499834:    2615781 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.500850:    2601287 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.501859:    2596902 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.502875:    2591934 cycles:Pu: 
+	    6468a953e5b1 main+0x271 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.503880:    2587738 cycles:Pu: 
+	    6468a953eb81 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x121 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.504898:    2587034 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.505902:    2582243 cycles:Pu: 
+	    7e44ca8ad7cb malloc+0x15b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.506911:    2580683 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.507911:    2578746 cycles:Pu: 
+	    6468a953ee60 fgep::execution::RecordingExecutionBackend::clear()+0x50 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.508910:    2579640 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.509910:    2580767 cycles:Pu: 
+	    7e44ca8adddc cfree@GLIBC_2.2.5+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.510924:    2581838 cycles:Pu: 
+	    7e44cacbb909 operator new(unsigned long)+0x29 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.511941:    2578495 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.512943:    2574214 cycles:Pu: 
+	    6468a953fa36 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x16 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.513942:    2574431 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.514952:    2574443 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.515973:    2572216 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.516972:    2566529 cycles:Pu: 
+	    6468a953e180 operator new(unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.517985:    2567901 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.518996:    2563115 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.520034:    2560542 cycles:Pu: 
+	    7e44ca8ab1c1 _int_free+0x51 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.521028:    2549708 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.522016:    2552650 cycles:Pu: 
+	    7e44ca99896b __memmove_evex_unaligned_erms+0x2b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.523015:    2556172 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.524020:    2557350 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.525012:    2556940 cycles:Pu: 
+	    7e44ca8ab352 _int_free+0x1e2 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.526003:    2560472 cycles:Pu: 
+	    6468a953e574 main+0x234 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.527031:    2565297 cycles:Pu: 
+	    7e44ca8ad7bd malloc+0x14d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.528027:    2557459 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.529034:    2559620 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.530028:    2558376 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.531031:    2560010 cycles:Pu: 
+	    6468a953ee3c fgep::execution::RecordingExecutionBackend::clear()+0x2c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.532042:    2560106 cycles:Pu: 
+	    7e44cacbb8ed operator new(unsigned long)+0xd (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.533036:    2557602 cycles:Pu: 
+	    7e44ca8addc9 cfree@GLIBC_2.2.5+0x79 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.534046:    2560647 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.535047:    2557851 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.536039:    2558381 cycles:Pu: 
+	    6468a9540447 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xa7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.537031:    2562048 cycles:Pu: 
+	    6468a953f125 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x105 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.538024:    2565643 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.539042:    2569489 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.540039:    2564859 cycles:Pu: 
+	    7e44ca8ab369 _int_free+0x1f9 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.541034:    2566981 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.542029:    2569580 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.543045:    2572679 cycles:Pu: 
+	    7e44ca8ab1ce _int_free+0x5e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.544105:    2568874 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.545103:    2551362 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.546093:    2553107 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.547093:    2554115 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.548109:    2554978 cycles:Pu: 
+	    6468a953fc0b fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x1eb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.549123:    2550824 cycles:Pu: 
+	    7e44ca8ad7c6 malloc+0x156 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.550113:    2547648 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.551108:    2551292 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.552097:    2553678 cycles:Pu: 
+	    7e44ca8ab170 _int_free+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.553104:    2558148 cycles:Pu: 
+	    6468a95404a6 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x106 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.554096:    2557141 cycles:Pu: 
+	    6468a953f19b fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x17b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.555096:    2561730 cycles:Pu: 
+	    7e44ca8ab1a4 _int_free+0x34 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.556089:    2562990 cycles:Pu: 
+	    7e44cacb98a0 operator delete(void*)+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.557095:    2566203 cycles:Pu: 
+	    7e44ca8ab1fc _int_free+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.558090:    2565279 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.559092:    2568399 cycles:Pu: 
+	    7e44ca8ab1ce _int_free+0x5e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.560179:    2568699 cycles:Pu: 
+	    7e44ca998953 __memmove_evex_unaligned_erms+0x13 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.561204:    2544097 cycles:Pu: 
+	    6468a953f073 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x53 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.562232:    2537253 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.563297:    2522874 cycles:Pu: 
+	    6468a954045f fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xbf (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.564302:    2504608 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.565297:    2503905 cycles:Pu: 
+	    6468a953f12d fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x10d (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.566291:    2506474 cycles:Pu: 
+	    7e44ca8add9a cfree@GLIBC_2.2.5+0x4a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.567317:    2505191 cycles:Pu: 
+	    6468a953fcdd fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2bd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.568314:    2497942 cycles:Pu: 
+	    6468a953ee22 fgep::execution::RecordingExecutionBackend::clear()+0x12 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.569311:    2500056 cycles:Pu: 
+	    7e44ca8ab180 _int_free+0x10 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.570305:    2502014 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.571319:    2504002 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.572320:    2500606 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.573338:    2501360 cycles:Pu: 
+	    6468a953fc24 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x204 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.574330:    2496656 cycles:Pu: 
+	    6468a954044e fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xae (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.575424:    2492795 cycles:Pu: 
+	    6468a953e5fa main+0x2ba (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.576394:    2466916 cycles:Pu: 
+	    6468a95404c5 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x125 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.577351:    2477211 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.578311:    2492300 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.579340:    2510075 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.580314:    2502020 cycles:Pu: 
+	    7e44ca8add9a cfree@GLIBC_2.2.5+0x4a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.581284:    2511402 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.582257:    2522194 cycles:Pu: 
+	    6468a953f051 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x31 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.583284:    2537303 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.584269:    2529884 cycles:Pu: 
+	    7e44ca8ab1d2 _int_free+0x62 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.585250:    2535858 cycles:Pu: 
+	    6468a953fbeb fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x1cb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.586232:    2543042 cycles:Pu: 
+	    6468a953e5c9 main+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.587226:    2550303 cycles:Pu: 
+	    7e44ca99896b __memmove_evex_unaligned_erms+0x2b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.588236:    2553390 cycles:Pu: 
+	    6468a95403ee fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x4e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.589226:    2551145 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.590215:    2555189 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.591332:    2552958 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.592343:    2520480 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.593320:    2518052 cycles:Pu: 
+	    7e44ca998953 __memmove_evex_unaligned_erms+0x13 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.594296:    2526108 cycles:Pu: 
+	    7e44ca8ab1fc _int_free+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.595285:    2537418 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.596271:    2541815 cycles:Pu: 
+	    7e44ca8ab1ff _int_free+0x8f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.597256:    2547508 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.598243:    2553328 cycles:Pu: 
+	    6468a953eb72 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x112 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.599272:    2561141 cycles:Pu: 
+	    6468a953f087 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x67 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.600278:    2553145 cycles:Pu: 
+	    7e44ca8adddc cfree@GLIBC_2.2.5+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.601269:    2552040 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.602258:    2556012 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.603257:    2559540 cycles:Pu: 
+	    6468a953ee4c fgep::execution::RecordingExecutionBackend::clear()+0x3c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.604249:    2560820 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.605242:    2564386 cycles:Pu: 
+	    7e44ca8ab2a7 _int_free+0x137 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.606262:    2567725 cycles:Pu: 
+	    6468a953f179 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x159 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.607299:    2562513 cycles:Pu: 
+	    6468a953fb48 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x128 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.608296:    2551960 cycles:Pu: 
+	    6468a953fca9 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.609334:    2553845 cycles:Pu: 
+	    6468a953fd11 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2f1 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.610328:    2543257 cycles:Pu: 
+	    6468a953ee3c fgep::execution::RecordingExecutionBackend::clear()+0x2c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.611334:    2543290 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.612322:    2542443 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.613308:    2547132 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.614295:    2552816 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.615310:    2558993 cycles:Pu: 
+	    6468a953fbeb fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x1cb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.616303:    2554990 cycles:Pu: 
+	    6468a953ea60 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.617293:    2558244 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.618285:    2562445 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.619284:    2567781 cycles:Pu: 
+	    6468a953ee10 fgep::execution::RecordingExecutionBackend::clear()+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.620279:    2568864 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.621274:    2571472 cycles:Pu: 
+	    6468a953fb34 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x114 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.622301:    2573953 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.623313:    2566119 cycles:Pu: 
+	    6468a95403c8 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x28 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.624308:    2563432 cycles:Pu: 
+	    6468a953fb04 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0xe4 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.625301:    2565980 cycles:Pu: 
+	    6468a95403c8 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x28 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.626295:    2569133 cycles:Pu: 
+	    7e44ca8adddc cfree@GLIBC_2.2.5+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.627298:    2572980 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.628317:    2572985 cycles:Pu: 
+	    7e44ca8ab170 _int_free+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.629315:    2567932 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.630310:    2569503 cycles:Pu: 
+	    6468a9540487 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xe7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.631317:    2571623 cycles:Pu: 
+	    7e44ca8ab170 _int_free+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.632313:    2570544 cycles:Pu: 
+	    6468a953eaee fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x8e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.633309:    2572627 cycles:Pu: 
+	    6468a9540466 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xc6 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.634319:    2574907 cycles:Pu: 
+	    6468a953f020 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.635325:    2572837 cycles:Pu: 
+	    6468a953f160 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x140 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.636322:    2571733 cycles:Pu: 
+	    6468a953f1b4 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x194 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.637319:    2573661 cycles:Pu: 
+	    6468a953fadb fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0xbb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.638375:    2575770 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.639427:    2557623 cycles:Pu: 
+	    6468a953ea71 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x11 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.640419:    2542763 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.641404:    2546361 cycles:Pu: 
+	    7e44ca8ad67a malloc+0xa (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.642391:    2552081 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.643387:    2556927 cycles:Pu: 
+	    6468a953e50b main+0x1cb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.644397:    2558943 cycles:Pu: 
+	    6468a953fca5 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x285 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.645389:    2557005 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.646382:    2560334 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.647382:    2564486 cycles:Pu: 
+	    7e44ca8ab191 _int_free+0x21 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.648377:    2565183 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.649387:    2567800 cycles:Pu: 
+	    7e44ca8ad7fa malloc+0x18a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.650383:    2565806 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.651410:    2568452 cycles:Pu: 
+	    6468a953fa20 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.652407:    2560824 cycles:Pu: 
+	    7e44ca8ad7da malloc+0x16a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.653547:    2562975 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.654978:    2492446 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.656194:    2399200 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.657124:    2346652 cycles:Pu: 
+	    6468a953fcc0 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2a0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.658079:    2369497 cycles:Pu: 
+	    6468a953e5e1 main+0x2a1 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.659026:    2375049 cycles:Pu: 
+	    6468a953ea60 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.659947:    2392709 cycles:Pu: 
+	    6468a953fcc0 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2a0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.660876:    2418951 cycles:Pu: 
+	    6468a953eb08 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xa8 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.661814:    2443162 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.662762:    2464307 cycles:Pu: 
+	    7e44ca8ad6cf malloc+0x5f (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.663728:    2493502 cycles:Pu: 
+	    6468a953f0ed fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xcd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.664697:    2505757 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.665704:    2516489 cycles:Pu: 
+	    6468a9540487 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xe7 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.666683:    2515511 cycles:Pu: 
+	    6468a953f125 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x105 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.667675:    2527059 cycles:Pu: 
+	    7e44cacbb909 operator new(unsigned long)+0x29 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.668657:    2530416 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.669754:    2537341 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.670756:    2510160 cycles:Pu: 
+	    6468a953ee5b fgep::execution::RecordingExecutionBackend::clear()+0x4b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.671764:    2507671 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.672759:    2505981 cycles:Pu: 
+	    6468a953e5b1 main+0x271 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.673764:    2508563 cycles:Pu: 
+	    6468a953f5fb fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x3b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.674752:    2508017 cycles:Pu: 
+	    6468a953fc24 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x204 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.675748:    2513255 cycles:Pu: 
+	    7e44ca8add75 cfree@GLIBC_2.2.5+0x25 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.676723:    2515447 cycles:Pu: 
+	    7e44ca8ab369 _int_free+0x1f9 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.677715:    2524437 cycles:Pu: 
+	    7e44ca8ad7da malloc+0x16a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.678708:    2528074 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.679738:    2532682 cycles:Pu: 
+	    6468a953eb26 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xc6 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.680722:    2524386 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.681715:    2530626 cycles:Pu: 
+	    6468a953fc49 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x229 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.682712:    2533697 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.683717:    2535658 cycles:Pu: 
+	    6468a953fc7e fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x25e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.684718:    2534911 cycles:Pu: 
+	    6468a953f1b0 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x190 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.685763:    2535567 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.686782:    2522724 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.687826:    2515992 cycles:Pu: 
+	    6468a953e56d main+0x22d (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.688824:    2503915 cycles:Pu: 
+	    6468a953f10f fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xef (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.689815:    2505412 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.690814:    2508936 cycles:Pu: 
+	    6468a953f020 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.691846:    2508827 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.692836:    2500122 cycles:Pu: 
+	    7e44ca8ab365 _int_free+0x1f5 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953f0f2 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xd2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.693830:    2504230 cycles:Pu: 
+	    6468a953f10e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xee (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.694802:    2506936 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.695805:    2517795 cycles:Pu: 
+	    6468a953f10e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0xee (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.696805:    2517760 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.697797:    2518747 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.698788:    2522231 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.699823:    2526370 cycles:Pu: 
+	    7e44ca8add5e cfree@GLIBC_2.2.5+0xe (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.700868:    2516887 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.701873:    2504045 cycles:Pu: 
+	    6468a953f051 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x31 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.702869:    2501049 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.703857:    2503429 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.704846:    2508152 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.705834:    2512581 cycles:Pu: 
+	    6468a95403a0 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.706839:    2519203 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.707831:    2518438 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.708824:    2521919 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.709824:    2525311 cycles:Pu: 
+	    7e44ca8ad7da malloc+0x16a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.710838:    2526640 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.711831:    2523372 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.712832:    2526513 cycles:Pu: 
+	    7e44ca8ab1a4 _int_free+0x34 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.713827:    2527207 cycles:Pu: 
+	    6468a953ea8e fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x2e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.714826:    2529715 cycles:Pu: 
+	    7e44ca8ab170 _int_free+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.715829:    2531361 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.716867:    2531453 cycles:Pu: 
+	    7e44ca8addd7 cfree@GLIBC_2.2.5+0x87 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.717867:    2520843 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.718892:    2519261 cycles:Pu: 
+	    6468a953e5b1 main+0x271 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.719884:    2512467 cycles:Pu: 
+	    6468a953eadb fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x7b (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.720875:    2515822 cycles:Pu: 
+	    7e44ca99896b __memmove_evex_unaligned_erms+0x2b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.721875:    2519711 cycles:Pu: 
+	    6468a953e5e1 main+0x2a1 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.722881:    2522164 cycles:Pu: 
+	    7e44ca8ab352 _int_free+0x1e2 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.723876:    2521305 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.724876:    2523727 cycles:Pu: 
+	    6468a953f618 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x58 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.725875:    2524717 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.726897:    2525861 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.727891:    2519995 cycles:Pu: 
+	    6468a953fca9 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x289 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.728918:    2522677 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.729911:    2515394 cycles:Pu: 
+	    7e44ca8ad7da malloc+0x16a (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.730910:    2517746 cycles:Pu: 
+	    6468a953e180 operator new(unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.731909:    2518977 cycles:Pu: 
+	    7e44ca8add7d cfree@GLIBC_2.2.5+0x2d (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.732960:    2520212 cycles:Pu: 
+	    7e44ca8ab18b _int_free+0x1b (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.733954:    2505860 cycles:Pu: 
+	    7e44ca8ad670 malloc+0x0 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.734953:    2508462 cycles:Pu: 
+	    6468a953e1e0 memmove@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.735951:    2509659 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.736944:    2511240 cycles:Pu: 
+	    6468a95404c5 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x125 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.737932:    2514421 cycles:Pu: 
+	    6468a953e190 operator delete(void*, unsigned long)@plt+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.738930:    2520343 cycles:Pu: 
+	    6468a953fa36 fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x16 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.739926:    2521934 cycles:Pu: 
+	    7e44ca998953 __memmove_evex_unaligned_erms+0x13 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.740928:    2524215 cycles:Pu: 
+	    6468a953f032 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x12 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.741933:    2524502 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.742945:    2523427 cycles:Pu: 
+	    6468a953e5d9 main+0x299 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.743940:    2520503 cycles:Pu: 
+	    6468a953fb8c fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x16c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.744934:    2522974 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.745940:    2525774 cycles:Pu: 
+	    7e44caca2210 malloc@plt+0x0 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953eb12 fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xb2 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2b0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.746948:    2525046 cycles:Pu: 
+	    6468a953e5b9 main+0x279 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.748134:    2523607 cycles:Pu: 
+	    7e44ca8ab1e9 _int_free+0x79 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.749256:    2474979 cycles:Pu: 
+	    6468a9540466 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0xc6 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.750216:    2441908 cycles:Pu: 
+	    6468a953eb2b fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0xcb (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.751206:    2441503 cycles:Pu: 
+	    7e44ca8ad691 malloc+0x21 (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44cacbb904 operator new(unsigned long)+0x24 (/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+	    6468a953f07e fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x5e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.752153:    2445436 cycles:Pu: 
+	    6468a95404a6 fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x106 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.753101:    2463409 cycles:Pu: 
+	    6468a953fbbc fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x19c (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.754056:    2481338 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.755064:    2505923 cycles:Pu: 
+	    6468a953eadf fgep::execution::RecordingExecutionBackend::submit(fgep::execution::BackendSubmitRequest const&)+0x7f (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	    6468b2d9f2f0 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.756036:    2504505 cycles:Pu: 
+	    6468a953f160 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x140 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.757020:    2514358 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.757996:    2520538 cycles:Pu: 
+	    7e44ca8ab1fc _int_free+0x8c (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    7e44ca8addce cfree@GLIBC_2.2.5+0x7e (/usr/lib/x86_64-linux-gnu/libc.so.6)
+	    6468a953ee51 fgep::execution::RecordingExecutionBackend::clear()+0x41 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	            ecb1 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.759042:    2528500 cycles:Pu: 
+	    6468a953f644 fgep::ouch::(anonymous namespace)::write_appendage(std::span<std::byte, 18446744073709551615ul>, unsigned long, unsigned long, std::vector<std::byte, std::allocator<std::byte> > const&)+0x84 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.760025:    2515677 cycles:Pu: 
+	    6468a953e515 main+0x1d5 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.761002:    2521957 cycles:Pu: 
+	    6468a953fcdd fgep::ouch::encode_enter_order_message(std::span<std::byte, 18446744073709551615ul>, fgep::ouch::EnterOrderMessage const&)+0x2bd (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.762013:    2530401 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.763018:    2529453 cycles:Pu: 
+	    6468a95403ee fgep::ErrorCode fgep::wire::write_fixed_ascii<14ul>(std::span<std::byte, 18446744073709551615ul>, unsigned long, std::array<char, 14ul> const&)+0x4e (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.764079:    2528830 cycles:Pu: 
+	    6468a953e5fa main+0x2ba (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.765060:    2511587 cycles:Pu: 
+	    6468a953f1a1 fgep::execution::submit_enter_order_to_backend(fgep::execution::ExecutionBackend&, fgep::ouch::EnterOrderMessage const&)+0x181 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+	4c50414100000064 [unknown] ([unknown])
+
+hotpath_encoded  303777 209076.766034:    2518411 cycles:Pu: 
+	    6468a953ee10 fgep::execution::RecordingExecutionBackend::clear()+0x0 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
+hotpath_encoded  303777 209076.767022:    2526996 cycles:Pu: 
+	    6468a953e5a2 main+0x262 (/home/arazb/Projects/Project 3/fpga-gated-execution-platform/build/bench/benchmarks/hotpath_encoded_submit_benchmark)
+
