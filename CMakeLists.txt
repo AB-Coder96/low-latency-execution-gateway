@@ -129,6 +129,7 @@ add_library(
         src/bench/system_metadata.cpp
         src/bench/wall_clock_backend_benchmark.cpp
         src/runtime/runtime_phase.cpp
+        src/runtime/no_heap_guard.cpp
 )
 
 target_include_directories(
@@ -149,6 +150,7 @@ target_compile_definitions(
         FGEP_DEFAULT_EXEC_BACKEND="${FGEP_EXEC_BACKEND}"
         FGEP_BUILD_TYPE="${CMAKE_BUILD_TYPE}"
         FGEP_GIT_COMMIT="${FGEP_GIT_COMMIT}"
+        FGEP_ENABLE_RUNTIME_NO_HEAP_TESTS=$<BOOL:${FGEP_ENABLE_RUNTIME_NO_HEAP_TESTS}>
 )
 
 
