@@ -313,6 +313,10 @@ if(FGEP_ENABLE_RUNTIME_NO_HEAP_TESTS AND EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/tes
     fgep_add_test(test_no_heap_guard test_no_heap_guard.cpp)
 endif()
 
+if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/test_fpga_gate_interface.cpp")
+    fgep_add_test(test_fpga_gate_interface test_fpga_gate_interface.cpp)
+endif()
+
 if(FGEP_GOOGLETEST_AVAILABLE)
     include(GoogleTest)
 
